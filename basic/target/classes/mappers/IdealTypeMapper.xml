@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IdealTypeDAO">
+
+	<insert id="insertIdealType" parameterType="idealType">
+		INSERT INTO idealType(clientIdx, minAge, maxAge,minDistance,maxDistance,minHeight,maxHeight,religion,education,bodyShape,
+		drink,smoke,lastUpdate)
+		VALUES(#{clientIdx},
+			#{minAge},#{maxAge},
+			#{minDistance},#{maxDistance},#{minHeight},#{maxHeight},#{religion}
+			,#{education}
+			,#{bodyShape},#{drink},#{smoke},sysdate)
+	</insert>
+	
+	<select id="getIdealType" parameterType="idealType" resultType="idealType">
+		SELECT *
+		FROM idealType
+		WHERE clientIdx = #{clientIdx}
+	</select>
+	
+	
+</mapper>

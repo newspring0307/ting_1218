@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClientDetailInfoDAO">
+
+	<insert id="insertClientDetailInfo" parameterType="clientDetailInfo">
+		INSERT INTO clientDetailInfo(clientIdx, name, nickname,gender,
+		job,age,latitude,longitude,religion,education,height,bodyShape,
+		drink,smoke,selfIntro,lastUpdate)
+		VALUES(#{clientIdx},
+			#{name},#{nickname},#{gender},#{job},
+			#{age},#{latitude},#{longitude},#{religion}
+			,#{education},#{height}
+			,#{bodyShape},#{drink},#{smoke},#{selfIntro},sysdate)
+	</insert>
+	
+	<update id="updatePhotoClientDetailInfo" parameterType="clientDetailInfo">
+		UPDATE clientDetailInfo SET
+		
+		photo = #{photo}
+		WHERE clientIdx = #{clientIdx}
+	</update>
+	
+	<select id="getClientDetailInfo" parameterType="clientDetailInfo" resultType="clientDetailInfo">
+		SELECT *
+		FROM clientDetailInfo
+		WHERE clientIdx = #{clientIdx}
+	</select>
+	
+	
+
+	
+	<update id="updateClientDetailInfo" parameterType="clientDetailInfo">
+		UPDATE clientDetailInfo SET
+		nickname = #{nickname},
+		job = #{job},
+		religion = #{religion},
+		education = #{education},
+		height = #{height},
+		bodyShape = #{bodyShape},
+		drink = #{drink},
+		smoke = #{smoke},
+		selfIntro = #{selfIntro},
+		lastUpdate = sysdate
+		WHERE clientIdx = #{clientIdx}
+	</update>
+	
+	<select id="getClientDetailInfoList" resultType="clientDetailInfo">
+		SELECT *
+		FROM ClientDetailInfo where clientIdx != #{clientIdx}
+	</select>
+	
+	<!-- 하트 갯수 -->
+	<select id="getTotalHeart" parameterType="clientDetailInfo" resultType="int">
+		SELECT totalHeart
+		FROM clientDetailInfo
+		WHERE clientIdx = #{clientIdx}
+	</select>
+	
+	<!-- 좋아요 클릭 시 하트 감소 -->
+	<update id="reduceTotalHeart" parameterType="clientDetailInfo">
+		UPDATE clientDetailInfo SET
+		totalHeart = totalHeart-1
+		WHERE clientIdx = #{clientIdx}
+	</update>
+	
+	
+</mapper>

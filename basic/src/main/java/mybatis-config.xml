@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<typeAlias alias="clientInfo" type="com.ting.domain.ClientInfoVO" />
+		<typeAlias alias="clientDetailInfo" type="com.ting.domain.ClientDetailInfoVO" />
+		<typeAlias alias="idealType" type="com.ting.domain.IdealTypeVO" />	
+		<typeAlias alias="board" type="com.ting.domain.TingBoardVO"/>
+		<typeAlias alias="likeReceive" type="com.ting.domain.LikeReceiveVO"/>
+		<typeAlias alias="coupleDecision" type="com.ting.domain.CoupleDecisionVO"/>
+	</typeAliases>
+	
+
+	
+	<!-- Mapper 등록: spring 설정파일에 지정하여 여기엔 필요없음 -->
+
+
+</configuration>
+
