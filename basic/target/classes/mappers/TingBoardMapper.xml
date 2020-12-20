@@ -4,58 +4,87 @@
 <mapper namespace="TingBoardDAO">
 
 	<insert id="insertBoard" parameterType="board">
-		INSERT INTO Board(boardIdx, title, clientIdx, content, regdate, boardTypeIdx)
-		VALUES(Board_seq.nextval,#{title},#{clientIdx},#{content},sysdate,#{boardTypeIdx})	
-	</insert>
+		
+		INSERT INTO tingBoard(boardIdx, title, clientIdx, content, originalcontent, tag, fname, fsize, regdate)
+		VALUES(tingBoard_seq.nextval,#{title},#{clientIdx},#{content},#{originalContent},#{tag},#{fname, jdbcType=VARCHAR},#{fsize, jdbcType=VARCHAR},sysdate)	
+		
+	</insert> 
 	
 	<update id="updateBoard" parameterType="board">
-		UPDATE Board SET  
+		
+		UPDATE tingBoard SET 
 		TITLE = #{title},
-		CONTENT = #{content}		
+		CONTENT = #{content},
+		ORIGINALCONTENT = #{originalContent},
+		TAG = #{tag},
+		FNAME = #{fname, jdbcType=VARCHAR},
+		FSIZE = #{fsize, jdbcType=VARCHAR}
 		WHERE boardIdx = #{boardIdx}			
+		
 	</update>	
 	 
 	<delete id="deleteBoard" parameterType="board" >
-		DELETE BOARD
+		
+		DELETE tingBoard
 		WHERE boardIdx = #{boardIdx}
+		
 	</delete>
 	
 	<select id="getBoard" resultType="board" >
+		
 		SELECT *
-		FROM BOARD
+		FROM tingBoard
 		WHERE boardIdx = #{boardIdx}
-	</select>
-	 
-	 
-	 
-	 
-	 <resultMap type="board" id="boardNickResult">
-		<id property="clientIdx" column="clientIdx" />
-		<result property="boardIdx" column="boardIdx" />
-		<result property="title" column="title" />
-		<result property="content" column="content" />
-		<result property="regdate" column="regdate" />
-		<!--property="sphone" getSphone() column="sabun" => s.sabun sabun javaType="sphonevo" 
-			: 참조하는 실제 VO -->
-		<association property="clientDetailInfo" column="clientIdx"
-			javaType="clientDetailInfo">
-			<id property="clientIdx" column="clientIdx" />
-			<result property="nickname" column="nickname" />
-
-		</association>
-	</resultMap>
-	<select id="getBoardList" resultMap="boardNickResult">
-		select b.boardidx, b.title, b.content,
-		b.regdate,c.nickname
-		from board b, clientdetailinfo c
-		where b.clientidx=c.clientidx
 		
 	</select>
 	 
-	 	
-	 
-   
-
-	   
+	<select id="getBoardList" resultType="board">
+		
+		SELECT *
+		FROM tingBoard
+		ORDER BY boardIdx desc
+		
+		
+	</select>
 	
-</mapper>
+	
+ 	<select id="list" resultType="board" parameterType="pvo">
+	   select * from (
+	   select rownum r_num, a.* from 
+	   (select * from tingBoard 
+	   	<if test="searchType != null">
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						clientIdx = #{searchValue}
+					</when>
+					<when test="searchType == 2">
+						title like '%'|| #{searchValue} ||'%'
+					</when>
+				</choose>
+			</where>
+		</if>		   
+	   order by boardIdx desc
+	   ) a
+	   ) where r_num between  #{start} and #{end}
+	</select>
+	
+	<select id="totalCount" resultType="int" parameterType="pvo">
+		select count(*) cnt from tingBoard
+		<if test="searchType != null">
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						clientIdx = #{searchValue}
+					</when>
+					<when test="searchType == 2">
+						title like '%'|| #{searchValue} ||'%'
+					</when>
+				</choose>
+			</where>
+		</if>
+	</select>  
+	
+
+
+</mapper>  

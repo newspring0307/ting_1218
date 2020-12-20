@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
     
     
 <%
@@ -10,13 +9,22 @@
  //  String address = (String)request.getAttribute("address");
   //  int totalPrice = (int)request.getAttribute("totalPrice");
      String name = (String)request.getParameter("name");
-     String phone = (String)request.getParameter("phone");
+     String clientIdx = (String)request.getParameter("clientIdx");
+     String goodName = (String)request.getParameter("goodName");
+     String goodIdx = (String)request.getParameter("goodIdx");
+     String method = (String)request.getParameter("method");
+    
      String stotalPrice = (String)request.getParameter("totalPrice");
-     int totalPrice = Integer.parseInt(stotalPrice);  
+     
+      int totalPrice = Integer.parseInt(stotalPrice);   
      System.out.println("name: "+name);
-     System.out.println("phone: "+phone);
+     System.out.println("clientIdx: "+clientIdx);
+     System.out.println("goodName: "+goodName);
+     System.out.println("goodIdx: "+goodIdx);
+     System.out.println("method: "+method);
+     
      System.out.println("stotalPrice: "+stotalPrice);
-     System.out.println("totalPrice: "+totalPrice);
+      System.out.println("totalPrice: "+totalPrice); 
  
 %>
 
@@ -32,56 +40,62 @@
 <body>
     <script>
     $(function(){
-        var IMP = window.IMP; // ìƒëµê°€ëŠ¥
-        IMP.init('imp63155918'); // 'iamport' ëŒ€ì‹  ë¶€ì—¬ë°›ì€ "ê°€ë§¹ì  ì‹ë³„ì½”ë“œ"ë¥¼ ì‚¬ìš©
+        var IMP = window.IMP; // »ı·«°¡´É
+        IMP.init('imp63155918'); // 'iamport' ´ë½Å ºÎ¿©¹ŞÀº "°¡¸ÍÁ¡ ½Äº°ÄÚµå"¸¦ »ç¿ë
         var msg;
         
         IMP.request_pay({
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'KH Books ë„ì„œ ê²°ì œ',
+            name : 'Tingtoday °áÁ¦',
             amount : <%=totalPrice%>,
-            buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',
+            buyer_name : '<%=goodName%>',
+            buyer_tel : '<%=clientIdx%>',
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
             if ( rsp.success ) {
-                //[1] ì„œë²„ë‹¨ì—ì„œ ê²°ì œì •ë³´ ì¡°íšŒë¥¼ ìœ„í•´ jQuery ajaxë¡œ imp_uid ì „ë‹¬í•˜ê¸°
+                //[1] ¼­¹ö´Ü¿¡¼­ °áÁ¦Á¤º¸ Á¶È¸¸¦ À§ÇØ jQuery ajax·Î imp_uid Àü´ŞÇÏ±â
                 jQuery.ajax({
-                    url: "/payments/complete", //cross-domain errorê°€ ë°œìƒí•˜ì§€ ì•Šë„ë¡ ì£¼ì˜í•´ì£¼ì„¸ìš”
+                    url: "/payments/complete", //cross-domain error°¡ ¹ß»ıÇÏÁö ¾Êµµ·Ï ÁÖÀÇÇØÁÖ¼¼¿ä
                     type: 'POST',
                     dataType: 'json',
                     data: {
                         imp_uid : rsp.imp_uid
-                        //ê¸°íƒ€ í•„ìš”í•œ ë°ì´í„°ê°€ ìˆìœ¼ë©´ ì¶”ê°€ ì „ë‹¬
+                        //±âÅ¸ ÇÊ¿äÇÑ µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é Ãß°¡ Àü´Ş
                     }
                 }).done(function(data) {
-                    //[2] ì„œë²„ì—ì„œ REST APIë¡œ ê²°ì œì •ë³´í™•ì¸ ë° ì„œë¹„ìŠ¤ë£¨í‹´ì´ ì •ìƒì ì¸ ê²½ìš°
+                    //[2] ¼­¹ö¿¡¼­ REST API·Î °áÁ¦Á¤º¸È®ÀÎ ¹× ¼­ºñ½º·çÆ¾ÀÌ Á¤»óÀûÀÎ °æ¿ì
                     if ( everythings_fine ) {
-                        msg = 'ê²°ì œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.';
-                        msg += '\nê³ ìœ ID : ' + rsp.imp_uid;
-                        msg += '\nìƒì  ê±°ë˜ID : ' + rsp.merchant_uid;
-                        msg += '\ê²°ì œ ê¸ˆì•¡ : ' + rsp.paid_amount;
-                        msg += 'ì¹´ë“œ ìŠ¹ì¸ë²ˆí˜¸ : ' + rsp.apply_num;
+                        msg = '°áÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.';
+                        msg += '\n°íÀ¯ID : ' + rsp.imp_uid;
+                        msg += '\n»óÁ¡ °Å·¡ID : ' + rsp.merchant_uid;
+                        msg += '\°áÁ¦ ±İ¾× : ' + rsp.paid_amount;
+                        msg += 'Ä«µå ½ÂÀÎ¹øÈ£ : ' + rsp.apply_num;
                         
                         alert(msg);
                     } else {
-                        //[3] ì•„ì§ ì œëŒ€ë¡œ ê²°ì œê°€ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
-                        //[4] ê²°ì œëœ ê¸ˆì•¡ì´ ìš”ì²­í•œ ê¸ˆì•¡ê³¼ ë‹¬ë¼ ê²°ì œë¥¼ ìë™ì·¨ì†Œì²˜ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤.
+                        //[3] ¾ÆÁ÷ Á¦´ë·Î °áÁ¦°¡ µÇÁö ¾Ê¾Ò½À´Ï´Ù.
+                        //[4] °áÁ¦µÈ ±İ¾×ÀÌ ¿äÃ»ÇÑ ±İ¾×°ú ´Ş¶ó °áÁ¦¸¦ ÀÚµ¿Ãë¼ÒÃ³¸®ÇÏ¿´½À´Ï´Ù.
                     }
                 });
-                //ì„±ê³µì‹œ ì´ë™í•  í˜ì´ì§€
-                 opener.location.href='Premium_2_payresult.do';
-                	 alert("ê²°ì œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
-                	 close()
-                	 
+                //¼º°ø½Ã ÀÌµ¿ÇÒ ÆäÀÌÁö
+                /*
+                
+                */
+                var clientIdx=<%=clientIdx%>;
+                var goodName = <%=goodName%>;
+                var goodIdx = <%=goodIdx%>;
+                var method = "<%=method%>";             
+                opener.location.href="Premium_2_payresult?clientIdx="+clientIdx+"&goodIdx="+goodIdx+"&method="+method;
+                close()               	                	 
             } else {
-                msg = 'ê²°ì œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.';
-                msg += 'ì—ëŸ¬ë‚´ìš© : ' + rsp.error_msg;
-                //ì‹¤íŒ¨ì‹œ ì´ë™í•  í˜ì´ì§€
-                location.href="Premium_2_payresult.do";
+                msg = '°áÁ¦¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.';
+                msg += '¿¡·¯³»¿ë : ' + rsp.error_msg;
+                //½ÇÆĞ½Ã ÀÌµ¿ÇÒ ÆäÀÌÁö
+                /* location.href="Premium_0_main.do"; */
+                close()
                 alert(msg);
             }
         });

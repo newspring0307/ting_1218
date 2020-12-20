@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!----------------------------------content start---------------------------------->
+<%-- <c:forEach items="${memberList}" var="member"> --%>
 
 <section id="fh5co-about" >
 		<div class="container">
@@ -10,40 +12,66 @@
 					<h2 class="to-animate">Premium</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h1>±âº» ÇÁ¸®¹Ì¾ö ÇıÅÃ : ting card <span style="color:blue;">DOUBLE!</span></h1>
+							<h1>ê¸°ë³¸ í”„ë¦¬ë¯¸ì—„ í˜œíƒ : ting card <span style="color:blue;">DOUBLE!</span></h1>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/week.png" alt="Image"></figure>
-						<h2>7 ÀÏ</h2>
-						<p>ÇÏ·ç ting Card: 6°³</p>
-						<p>+ ÇÃ·¯½º ÇıÅÃ</p>
-						<input class="btn btn-primary btn-lg" value="7,000 ¿ø" type="button"  onclick="showPopup()">
-						<!-- ³ªÁß¿¡ º¯¼ö·Î ³ÖÀ» °Í -->
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/month.png" alt="Image"></figure>
-						<h2>30 ÀÏ</h2>
-						<p>ÇÏ·ç ting Card: 6°³</p>
-						<p>+ ÇÃ·¯½ºÇÃ·¯½º ÇıÅÃ</p>
-						<input class="btn btn-primary btn-lg" value="ÇÒÀÎ°¡ 2,5000 ¿ø" type="button"  id="pay_25000" onclick="showPopup()">
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/year.png" alt="Image"></figure>
-						<h2>365 ÀÏ</h2>
-						<p>ÇÏ·ç ting Card: 6°³</p>
-						<p>+ ¿ÕÇÃ·¯½º ÇıÅÃ</p>
-						<input class="btn btn-primary btn-lg" value="ÀÌº¥Æ®Æ¯°¡! 99,000¿ø" type="button"  id="pay_99000" onclick="showPopup()">
-					</div>
-				</div>
+			</div>			
+			<div class="row">	
+			<!--  ì´ìŠˆ : í¼ì€ ë”°ë¡œ ì „ë‹¬ í•´ì•¼ í•œë‹¤., ìë°”ìŠ¤í¬ë¦½/jQuery ëŠ” idê°€ ì¤‘ë³µë˜ì–´ì„œëŠ” ë™ì‘ì´ ì•ˆë˜ê¸° ë•Œë¬¸ì— ...
+				  classë¡œ ë°”ê¿”ì„œ í•¸ë“¤ë§ í–ˆë‹¤.
+			 -->
+			<c:forEach items="${GoodsList}" var="goods">	
+				<form class="pay" method="post">			
+						<div class="col-md-4">
+							<div class="fh5co-person text-center to-animate">
+								<figure><img src="resources/images/week.png" alt="Image"></figure>
+								<input type="hidden" value="${sessionScope.clientIdx}" name="clientIdx">
+								<input type="hidden" value="${goods.goodIdx}" name="goodIdx">								
+								<input type="hidden" value="resources/images/img_7.jpg" name="poto">
+								
+								<input type="hidden" name="heartcnt" value="â™¥${ goods.heartcnt}ê°œ">								
+								<img src="resources/images/img_7.jpg" width="100px;" height="100px;">
+								<hr>
+								<p>í•˜ë£¨ ting ${goods.goodName }</p>
+								<p><h3>â™¥${ goods.heartcnt}ê°œ</h3></p>
+								<input class="btn btn-primary btn-lg"  type="submit"  name="Price" value="${goods.price }">
+								<!-- ë‚˜ì¤‘ì— ë³€ìˆ˜ë¡œ ë„£ì„ ê²ƒ -->
+							</div>
+						</div>		
+				</form>						
+			</c:forEach>	
+			
 			</div>
 		</div>
 	</section>
+
+			
+
+
+	
+
+
+
+<!----------------------------------content end---------------------------------->
+<!---------------------------------- Footer start ---------------------------------->
+
+	<script language="javascript">
+	
+		
+	 $(document).ready(function() {
+		 //# = id  . = class 
+		 //id = ì¤‘ë³µì•ˆë¨  class = ì¤‘ë³µ ê°€ëŠ¥
+		 // for each ë¬¸ìœ¼ë¡œ ë°˜ë³µí• ë•Œ ê°’ì´ ì¤‘ë³µ ë˜ë©´ ì²«ë²ˆì§¸ ê°’ë§Œ ì¶œë ¥ëœë‹¤.
+		 // class ëŠ” ì¤‘ë³µì´ ê°€ëŠ¥í•˜ê¸°ë•Œë¬¸ì— DBì— ìˆëŠ” ê°’ì´ ì°¨ë¡€ëŒ€ë¡œ  ë“¤ì–´ê°€ê²Œ ëœë‹¤.
+		$('.pay').submit(function() {
+		window.open('', 'payviewer', 'width=600,height=800,left=650,top=100,resizeable,scrollbars');
+		this.action = 'Premium_1_payment';
+		this.method = 'POST';
+		this.target = 'payviewer';
+		});
+		    
+	});
+		</script>
+
+

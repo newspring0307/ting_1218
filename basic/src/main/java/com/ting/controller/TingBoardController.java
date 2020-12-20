@@ -1,15 +1,15 @@
 package com.ting.controller;
 
-import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ting.dao.TingBoardDAO;
+import com.ting.domain.PageVO;
 import com.ting.domain.TingBoardVO;
 import com.ting.service.TingBoardService;
 
@@ -19,16 +19,18 @@ public class TingBoardController {
 	@Autowired
 	private TingBoardService tingBoardService;
 	
+	@Autowired
+	public TingBoardDAO tingBoardDAO;
+	
 	@RequestMapping("/insertBoard")
-	public String insertBoard(TingBoardVO vo,HttpSession session) {
+	public String insertBoard(TingBoardVO vo) {
 		System.out.println("======");
-		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		tingBoardService.insertBoard(vo);
 		return "redirect:/Tingtoday_0_main";
 	}
- 
+
 	   @RequestMapping("/updateBoard")
-	   public String updateQuestion(TingBoardVO vo) {
+	   public String updateBoard(TingBoardVO vo) {
 	      
 	      tingBoardService.updateBoard(vo);
 	      return "redirect:/Tingtoday_0_main";
@@ -49,32 +51,73 @@ public class TingBoardController {
       return "redirect:/Tingtoday_0_main";
    }
 
-   
-	@RequestMapping("/Tingtoday_0_main")
-	public String getBoardList(TingBoardVO vo, Model m) {
-		//BoardVO vo: 이전화면에서 넘어오는 파라미터 저장(현재는 데이터 없음)
-
-		System.out.println("1");
-		List<TingBoardVO> result = tingBoardService.getBoardList(vo);
-
-		System.out.println("2");
-		m.addAttribute("boardList", result);
-		System.out.println(result);
-		return "/Tingtoday_0_main";
-		
-	}
+	  @RequestMapping("/Tingtoday_0_main")
+	  public String listSearch( PageVO vo, Model model
+			  , @RequestParam(value="nowPage", required=false , 
+			  defaultValue="1") String nowPage 
+			  , @RequestParam(value="cntPerPage", required=false , 
+			  defaultValue="10") String cntPerPage){ 
+		  System.out.println("토탈 전");
+		  int total = tingBoardDAO.getTotalCount();
+		  System.out.println("토탈 후");
+		   
+		 
+		  
+		  vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage)); 
+		  	System.out.println("Start :"+vo.getStart());
+			System.out.println("End :"+vo.getEnd()); 
+			model.addAttribute("paging", vo);
+			model.addAttribute("boardList",tingBoardService.getList(vo) ); 
+			  
 	
 		
+			  return "/Tingtoday_0_main";
+	  }
+	 	  
+	
+		
+
+
 	@RequestMapping("/Tingtoday_0_view")
-	public String getBoard(TingBoardVO vo,Model m) {
+	public void getBoard(TingBoardVO vo,Model m) {
 	   TingBoardVO result = tingBoardService.getBoard(vo);
 	   m.addAttribute("board",result);
-		return "/Tingtoday_0_view";
-	}	
-	@RequestMapping("/Tingtoday_0_write")
-	public String getBoard() {
-		return "/Tingtoday_0_write";
 	}
 	
 
+
 }
+
+/*		
+@RequestMapping("/Tingtoday_0_main")
+public void getBoardList(TingBoardVO vo, Model m){
+//BoardVO vo: 이전화면에서 넘어오는 파라미터 저장(현재는 데이터 없음)
+
+System.out.println("1"); List<TingBoardVO> result =
+tingBoardService.getBoardList(vo);
+
+System.out.println("2"); m.addAttribute("boardList", result);
+System.out.println(result);
+}
+
+*/
+/*	
+	 
+@RequestMapping(value="/Tingtoday_0_main")
+public String listSearch(PageVO vo, Model model
+		, @RequestParam(value="nowPage", required=false , 
+		defaultValue="1") String nowPage
+		, @RequestParam(value="cntPerPage", required=false , 
+		defaultValue="5") String cntPerPage){
+	int total = tingBoardDAO.getTotalCount();
+
+	vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	System.out.println("Start :"+vo.getStart());
+	System.out.println("End :"+vo.getEnd());
+	model.addAttribute("paging", vo);	
+	model.addAttribute("list", tingBoardDAO.getList(vo));
+	return "Tingtoday_0_main";
+}	  
+	 
+*/
+	

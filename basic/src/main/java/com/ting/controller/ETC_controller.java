@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ETC_controller {
 	
-	@RequestMapping("/Premium_0_main")
-	public String tiles2() {
-		return "/Premium_0_main";
-	}
 	@RequestMapping("/Main_login_0")
 	public String tiles3() {
 		return "/Main_login_0.jsp";

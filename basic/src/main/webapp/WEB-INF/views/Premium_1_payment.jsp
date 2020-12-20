@@ -1,64 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+    <!-- JoinForm.jspì—ì„œ ì…ë ¥í•œ ì •ë³´ë¥¼ ë„˜ê²¨ ë°›ì•„ ì²˜ë¦¬í•œë‹¤. -->
+    <% 
+        // í•œê¸€ ê¹¨ì§ì„ ë°©ì§€í•˜ê¸° ìœ„í•œ ì¸ì½”ë”© ì²˜ë¦¬
+        request.setCharacterEncoding("euc-kr"); 
+    
+        // getParameter()ë¥¼ ì´ìš©í•´ ë„˜ê²¨ì§„ íŒŒë¼ë¯¸í„° ê°’ì„ ì–»ì–´ì˜¬ ìˆ˜ ìˆë‹¤.
+        // íŒŒë¼ë¯¸í„° ê°’ì„ ì–»ì„ë•Œ name= ì— ì§€ì •í•´ë‘” ê°’ê³¼ ë™ì¼í•œ ê°’ì„ ì¸ìë¡œ ì§€ì •í•´ì•¼ ëœë‹¤.
+  
+        String heartcnt = request.getParameter("heartcnt");
+        String clientIdx = request.getParameter("clientIdx");
+        String Price = request.getParameter("Price");
+        String goodIdx = request.getParameter("goodIdx");
+        String poto = request.getParameter("poto");
+ 
+        System.out.println("heartcnt:"+heartcnt);
+        System.out.println("clientIdx:"+clientIdx);
+        System.out.println("Price:"+Price);
+        System.out.println("goodIdx:"+goodIdx);
+        System.out.println("poto:"+poto);
+        
+    %>
+	<!---------------------------------- header start ---------------------------------->
 
 <!---------------------------------- header end ---------------------------------->
 
-<!--¿©±â¿¡ ³»¿ë ³ÖÀ¸¼¼¿ä-->
+<!--ì—¬ê¸°ì— ë‚´ìš© ë„£ìœ¼ì„¸ìš”-->
 <br><br>
-<!--°áÁ¦ header-->
+<!--ê²°ì œ header-->
 			<header>
-			<h1 align="center">°áÁ¦ÁøÇà</h1>
+			<h1 align="center">ê²°ì œì§„í–‰</h1>
 			</header>
-<!--°áÁ¦ header-->
+<!--ê²°ì œ header-->
 <br><br>
-<!-- Å×ÀÌºí -->
+<!-- í…Œì´ë¸” -->
 	<div style="padding-left: 5%;">
-		<form action="kakao.do">
+		<form action="kakao">
 			<table class="w3-table-all notranslate">											
 				<thead>
 					<tr>
-					  <th style="border: 2px solid #52D3AA;width: 120px; height: 100px;"><h3 align="center">°áÁ¦¼ö´Ü</h3></th>
-					  <th style="border: 2px solid #52D3AA;width: 400px;padding:10px;"><h4 align="center">KakaoPay</h4></th>			                  
+					  <th style="border: 2px solid #52D3AA;width: 120px; height: 100px;"><h3 align="center">ê²°ì œìˆ˜ë‹¨</h3></th>
+					  <th style="border: 2px solid #52D3AA;width: 400px;">
+					  <input type="hidden" name="method" value="KakaoPay">
+					  <h2 align="center">KakaoPay</h2></th>			                  
 					</tr>
 				</thead>
 				<tbody> 
-					<tr>				                
-						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">±¸¸ÅÀÎ</h5></td>
-						<td style="border: 2px solid #52D3AA;width: 400px;padding:10px;"><h2 align="center">
-						<p><span name="name" value="fnzl">»ç¿ëÀÚ ID</span></p></h2>
-																																							                  
+ 					<tr>				                
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">êµ¬ë§¤ì¸</h5></td>
+						<td style="border: 2px solid #52D3AA;width: 400px;padding:10px;" >
+						<h2 align="center"><p><%=clientIdx %>&nbsp;</p></h2>																																						                  
 						</td>						
-					</tr>
-					
+					</tr>			
 					<tr>				                
-						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">ÀüÈ­¹øÈ£</h5></td>
-						<td style="border: 2px solid #52D3AA;">
-							<div class="ui input focus" style="padding-left: 10%;">
-								<p><input type="text" name="phone" style="width: 320px;height: 55px;text-align:center" placeholder="-¾øÀÌ ÀÔ·ÂÇÏ¼¼¿ä"></p>																
-							</div>					                  
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">ìƒí’ˆëª…</h5></td>
+						<td style="border: 2px solid #52D3AA;width: 400px;padding:10px;">
+						<input type="hidden" name="clientIdx" value="<%=clientIdx %>"><!-- ì—¬ê¸°ì— ì„¸ì…˜ê°’ì´ ë“¤ì–´ê°€ì•¼í•¨ -->
+						<input type="hidden" name="goodIdx" value="<%=goodIdx %>">	
+						<h2 align="center"><p><%=heartcnt %>&nbsp;</p></h2>																																																	                  
 						</td>						
-					</tr>	
-									                
-					 <tr>
-					    <td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">ÀÌ¸ŞÀÏ</h5></td>
-					    <td style="border: 2px solid #52D3AA;">
-						    <div class="ui input focus" style="padding-left: 10%; ">
-								<p><input name="email" style="width: 320px;height: 55px;text-align:center" placeholder="-¾øÀÌ ÀÔ·ÂÇÏ¼¼¿ä"></p>
-								
-							</div>					                  
-						</td>				                  																																		                  	                 			                  
-					</tr>
+					</tr>									                			
 				<tr>
-				<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">¼±ÅÃÇÑ »óÇ°</h5></td>
+				<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">ì„ íƒí•œ ìƒí’ˆ</h5></td>
 				<td style="border: 2px solid #52D3AA;">
 							<div class="ui form" style="padding-left: 25%;padding-top:20%;">				     
-							 <div class="inline fields" align="center">  
-								
+							 <div class="inline fields" align="center">  								
 									<div class="ui radio checkbox" align="center">
-										<img src="resources/images/img_7.jpg" width="100px;" height="100px;"><hr>									
-										<span><h4>Premium1</h4></span><br>
-										<input name="totalPrice" value="99000" style="text-align:center">
+										<img src="<%=poto %>" width="100px;" height="100px;"><hr>									
+										<h4><%=heartcnt %></h4><br>
+										<input name="totalPrice" value="<%=Price %>" style="text-align:center">
 									</div>
 								</div>																			
 							</div>
@@ -67,23 +79,23 @@
 				</tbody>    					          		                				             
 			</table>	
 			<hr>
-		<!-- ÀÌ¿ë¾à°üµ¿ÀÇ -->
-		<div class="form-control" align="center" style="width: 520px; height : 150px;padding:30px;">À§ÀÇ ÀÔ·ÂÇÑ Á¤º¸°¡ ¸ÂÀ¸¸ç <br>°³ÀÎÁ¤º¸ ÀÌ¿ë¿¡ µ¿ÀÇÇÕ´Ï´Ù.<br>
-			<input type="checkbox" onclick="alert('ÀÌ¿ë¾à°ü¿¡ µ¿ÀÇÇÏ¼Ë½À´Ï´Ù.');">
+		<!-- ì´ìš©ì•½ê´€ë™ì˜ -->
+		<div class="form-control" align="center" style="width: 520px; height : 150px;padding:30px;">ìœ„ì˜ ì…ë ¥í•œ ì •ë³´ê°€ ë§ìœ¼ë©° <br>ê°œì¸ì •ë³´ ì´ìš©ì— ë™ì˜í•©ë‹ˆë‹¤.<br>
+			<input type="checkbox" onclick="alert('ì´ìš©ì•½ê´€ì— ë™ì˜í•˜ì…§ìŠµë‹ˆë‹¤.');">
 		</div><br> <br>
-		<!-- ÀÌ¿ë¾à°üµ¿ÀÇ -->	
+		<!-- ì´ìš©ì•½ê´€ë™ì˜ -->	
 		
-		<!-- °áÁ¦ ¹öÆ° -->	         						       
+		<!-- ê²°ì œ ë²„íŠ¼ -->	         						       
 		<div style="padding-left: 25%;">
-			<input class="btn btn-primary btn-lg" type="submit" value="°áÁ¦ ¿Ï·á" />
-			<!-- <button id="check_module" type="button">¾ÆÀÓ ¼­Æ÷Æ®</button> -->
-			<input class="btn btn-primary btn-lg" type="button" value="°áÁ¦ Ãë¼Ò" onclick="moveCloseOff();" />				      				            
+			<input class="btn btn-primary btn-lg" type="submit" value="ê²°ì œ í•˜ê¸°" />
+			<input class="btn btn-primary btn-lg" type="button" value="ê²°ì œ ì·¨ì†Œ" onclick="moveCloseOff();" />				      				            
 		</div>	
-		<!-- °áÁ¦ ¹öÆ° -->	
+		<!-- ê²°ì œ ë²„íŠ¼ -->	
 		</form>		      
 	</div>
 
 
+ 
         
 	      
 	      
@@ -92,84 +104,20 @@
 <br><br>
 
 
+
+	<!---------------------------------script----------------------------------------------->
+
 	
 	
 	<script language="javascript">
 	function moveCloseOff() {		
-	  opener.location.href="Premium_0_main.do";		  
+	  opener.location.href="Premium_0_main";		  
 	  	close()  	  
 	}				
-	function go_result() { opener.location.href="Premium_2_payresult_Test";
+	function go_result() { opener.location.href="Premium_2_payresult";
 		
 		close()
 	}	
 	  </script>
 	  
 	  
-	  
-	<script>
-	$("#check_module").click(function () {
-		var IMP = window.IMP; // »ı·«°¡´É
-		IMP.init('imp63155918');
-		// 'iamport' ´ë½Å ºÎ¿©¹ŞÀº "°¡¸ÍÁ¡ ½Äº°ÄÚµå"¸¦ »ç¿ë
-		// i'mport °ü¸®ÀÚ ÆäÀÌÁö -> ³»Á¤º¸ -> °¡¸ÍÁ¡½Äº°ÄÚµå
-		IMP.request_pay({
-		pg: 'inicis', // version 1.1.0ºÎÅÍ Áö¿ø.
-		/*
-		'kakao':Ä«Ä«¿ÀÆäÀÌ,
-		html5_inicis':ÀÌ´Ï½Ã½º(À¥Ç¥ÁØ°áÁ¦)
-		'nice':³ªÀÌ½ºÆäÀÌ
-		'jtnet':Á¦ÀÌÆ¼³İ
-		'uplus':LGÀ¯ÇÃ·¯½º
-		'danal':´Ù³¯
-		'payco':ÆäÀÌÄÚ
-		'syrup':½Ã·´ÆäÀÌ
-		'paypal':ÆäÀÌÆÈ
-		*/
-		pay_method: 'card',
-		/*
-		'samsung':»ï¼ºÆäÀÌ,
-		'card':½Å¿ëÄ«µå,
-		'trans':½Ç½Ã°£°èÁÂÀÌÃ¼,
-		'vbank':°¡»ó°èÁÂ,
-		'phone':ÈŞ´ëÆù¼Ò¾×°áÁ¦
-		*/
-		merchant_uid: 'merchant_' + new Date().getTime(),
-		/*
-		merchant_uid¿¡ °æ¿ì
-		https://docs.iamport.kr/implementation/payment
-		À§¿¡ url¿¡ µû¶ó°¡½Ã¸é ³ÖÀ» ¼ö ÀÖ´Â ¹æ¹ıÀÌ ÀÖ½À´Ï´Ù.
-		Âü°íÇÏ¼¼¿ä.
-		³ªÁß¿¡ Æ÷½ºÆÃ ÇØº¼°Ô¿ä.
-		*/
-		name: 'ÁÖ¹®¸í:°áÁ¦Å×½ºÆ®',
-		//°áÁ¦Ã¢¿¡¼­ º¸¿©Áú ÀÌ¸§
-		amount: 1000,
-		//°¡°İ
-		buyer_email: 'iamport@siot.do',
-		buyer_name: '±¸¸ÅÀÚÀÌ¸§',
-		buyer_tel: '010-1234-5678',
-		buyer_addr: '¼­¿ïÆ¯º°½Ã °­³²±¸ »ï¼ºµ¿',
-		buyer_postcode: '123-456',
-		m_redirect_url: 'https://www.yourdomain.com/payments/complete'
-		/*
-		¸ğ¹ÙÀÏ °áÁ¦½Ã,
-		°áÁ¦°¡ ³¡³ª°í ·£µùµÇ´Â URLÀ» ÁöÁ¤
-		(Ä«Ä«¿ÀÆäÀÌ, ÆäÀÌÄÚ, ´Ù³¯ÀÇ °æ¿ì´Â ÇÊ¿ä¾øÀ½. PC¿Í ¸¶Âù°¡Áö·Î callbackÇÔ¼ö·Î °á°ú°¡ ¶³¾îÁü)
-		*/
-		}, function (rsp) {
-		console.log(rsp);
-		if (rsp.success) {
-		var msg = '°áÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.';
-		msg += '°íÀ¯ID : ' + rsp.imp_uid;
-		msg += '»óÁ¡ °Å·¡ID : ' + rsp.merchant_uid;
-		msg += '°áÁ¦ ±İ¾× : ' + rsp.paid_amount;
-		msg += 'Ä«µå ½ÂÀÎ¹øÈ£ : ' + rsp.apply_num;
-		} else {
-		var msg = '°áÁ¦¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.';
-		msg += '¿¡·¯³»¿ë : ' + rsp.error_msg;
-		}
-		alert(msg);
-			});
-		});
-	</script>

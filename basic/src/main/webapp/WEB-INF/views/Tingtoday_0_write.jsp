@@ -2,6 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+
+	<style>
+		a{
+		 font-family:'Jua', sans-serif
+		}
+		
+		.pagination > li > a{		
+		height: 50px;
+		padding-top: 15px;
+		width: 45px;
+		}
+	</style>
+
+
 <!---------------------------------- header end ---------------------------------->
 <!--여기에 내용 넣으세요-->
 
@@ -44,14 +59,14 @@
 <br><br>
 <!--게시판 테이블-->
 	<div class = "TingToday_list">
-		<form method="post" action="insertBoard">
+		<form method="post" action="insertBoard" enctype="multipart/form-data">
 			<input type="text" name="title" class="form-control mt-4 mb-2" placeholder="제목을 입력해주세요." required>
 				
 			<div class="form-group">
 				<textarea class="form-control" rows="10" name="content" placeholder="내용을 입력해주세요" required></textarea>
 			</div>
-			<div class="form-control">작성자 : ${sessionScope.UID}</div>
-						
+			<input type="number" name="clientIdx" class="form-control" placeholder="clientIdx" required><br>
+				<input type="file" maxlength="60" size="40" name="file"><br>									
 			<button type="submit" class="ui teal button">저장</button>			
 		</form>	
 	</div>
@@ -76,7 +91,7 @@
 리모콘		 -->
 
 <!--검색창폼-->			
-	<form action="#" method="POST" class="form-inline" align="right" style="padding-right: 10%">
+<!-- 	<form action="#" method="POST" class="form-inline" align="right" style="padding-right: 10%">
 		<div class="input-group" align="right">
 			<p>							
 				<select class="form-control" name="target">
@@ -88,11 +103,11 @@
 			<button class="huge ui button">검색</button>				
 			</p>
 		</div>
-	</form>
+	</form> -->
 <!--검색창폼-->
 			
 <!--페이지-->			
-	<div class="page_num1" align="center" style="padding:3px;">
+<!-- 	<div class="page_num1" align="center" style="padding:3px;">
 		<ul class="pagination">
 		<li class="page-item"><a class="page-link" href="#"><</a></li>
 		<li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -107,10 +122,9 @@
 		<li class="page-item"><a class="page-link" href="#">10</a></li>
 		<li class="page-item"><a class="page-link" href="#">></a></li>
 		</ul>
-	</div>
+	</div> -->
 <!--페이지-->	
 	
 <br><br>	
 <br><br>
 
-<!---------------------------------- Footer start ---------------------------------->

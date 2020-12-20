@@ -1,109 +1,186 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div style="margin:0 auto ;width: 1100px">
-<p>여기 새로운 마이페이지 사용할 예정</p>
-			<div id="mainContainer" class="container">
-				<div class="twoColumn">
-					<section class="mainCol">
-					<br><br>
-					<!-- 나의 프리미엄 -->
-				<div class="infoCenter"> 
-					<h1>나의 프리미엄</h1><br>
-					<ul class="notifications count-3">
-
-					<li class="primary">
-					<a class="notification" href="Client_2_Ting_main" ><br><i class="fh5co-intro-icon icon-speedometer"></i>
-							<span class="inner"><br><span class="count">3</span>
-							<br><h2 style="color:white">오늘의 ting (매칭)</h2></span></a></li>
-
-					<li class="primary">
-					<a class="notification" href="#" ><br><i class="icon-chat"></i>
-							<span class="inner"><br><span class="count">15</span>
-							<br><h2 style="color:white">새로운 메시지</h2></span></a></li>
-
-					<li class="primary">
-					<a class="notification" href="Client_5_like_Received" ><br><i class="fh5co-intro-icon icon-heart"></i>
-							<span class="inner"><br><span class="count">5</span>
-							<br><h2 style="color:white">나의 좋아요 ♥</h2></span></a></li>
-
-						
-					</ul>
-				</div>
-				<!-- 나의 프리미엄 -->
-<!-- 
-
-
- -->					
-					
-						<section class="profilePage">
-							<a class="backLink" ><h1>마이페이지</h1></a><br>
-							<div class="box profileHeader">
-								<article class="profileInfo">
-									<a class="imgWrp" target="_blank" style="background-color: #D8D8D8 " href="">
-									<img src="resources/img_photo/${myDetailInfo.photo}" alt=""></a>
-									<div class="intro">
-									
-										<h1>이름 : ${myDetailInfo.name}</h1><br>
-										<h2>닉네임 : ${myDetailInfo.nickname}</h2>
-
-										<div class="form whiteForm aboutMe">
-											<h3>자기 소개</h3><br>
-											<p class="">${myDetailInfo.selfIntro}</p>
-											
-										</div>
-									</div>
-								</article>
-								<nav class="profileMenu">
-									<a id=""  class="" href="Client_1_info_update"><i class="icon-favoriteOutline"> </i><span>프로필 수정하기</span></a>
-									<a id=""  class="" href="Client_1_info_PWreset1"><i class="icon-favoriteOutline"> </i><span>비밀번호 재설정</span></a>
-									<a id=""  class="" href="Client_1_tingtoday_list"><i class="icon-kiss"> </i><span>팅투데이 - 나의 작성 글</span></a>
-									<a id=""  class="" href="Client_1_tingtoday_replylist"><i class="icon-kiss"> </i><span>팅투데이 - 나의 작성 댓글</span></a>
-
-									<a id=""  class="" href="#"><i class="icon-chat"> </i><span>채팅하기</span></a>
-									<a id=""  class="" href="Client_1_primium"><i class="icon-gift"> </i><span>프리미엄</span></a>
-									<a id=""  class="" href="Client_1_payment_list"><i class="icon-gift"> </i><span>결제 내역</span></a>
-									<a id=""  class="" href="Client_1_ask_list"><i class="icon-block"> </i><span>문의 및 신고</span></a>
-								</nav>
-
+<section id="fh5co-intro" data-section="love">
+		<div class="container">
+			<div class=" section-heading text-center">
+				<div align="center"
+					style="width: 70%; height: auto; border: 1px solid #E6E6E6; border-radius: 1em; margin: 0 auto;">
+					<div
+						style="height: auto; width: 90%; text-align: left; padding-bottom: 40px;">
+						<div class="WriterInfo"
+							style="padding-bottom: 225px; padding-top: 15px">
+							<div class="" style="margin-right: 0px; margin-left: 100px">
+								<a href="#" class="thumb"> <img class=""
+									src="https://t1.daumcdn.net/cfile/tistory/243FE450575F82662D"
+									alt="프로필 사진" align="left"
+									style="width: 200px; height: 200px; margin-right: 20px">
+								</a>
 							</div>
-							<div class="box profileFacts">
-								<h3>상세프로필</h3><br>
-								<div class="facts">
-									<div class="group">
-										<span class="dt">키</span><span class="dd">
-										${myDetailInfo.height}</span>
-									</div>
-									<div class="group">
-										<span class="dt">체형</span><span class="dd">
-										${myDetailInfo.bodyShape}</span>
-									</div>
-									<div class="group">
-										<span class="dt">흡연여부</span><span class="dd">
-										${myDetailInfo.smoke}</span>
-									</div>
-									<div class="group">
-										<span class="dt">음주여부</span><span class="dd">
-										${myDetailInfo.drink}</span>
-									</div>
-									<div class="group">
-										<span class="dt">학력</span><span class="dd">
-										${myDetailInfo.education}</span>
-									</div>
-									<div class="group">
-										<span class="dt">직업</span><span class="dd">
-										${myDetailInfo.job}</span>
-									</div>
-									<div class="group">
-										<span class="dt">종교</span><span class="dd">
-										${myDetailInfo.religion}</span>
-									</div>
-									
+							<div
+								style="padding-top: 30px; float: right; width: 50%; height: %; text-align: center;">
+								<p>
+									<button class="ui inverted teal button" id=""
+										style="padding: 15px 30px; font-size: 16px;">받은 좋아요</button>
+								</p>
+								<p>
+									<button class="ui inverted teal button" id=""
+										style="padding: 15px 30px; font-size: 16px;">보낸 좋아요</button>
+								</p>
+								<p>
+									<button class="ui inverted teal button" id=""
+										style="padding: 15px 30px; font-size: 16px;">상세정보 수정</button>
+								</p>
+							</div>
+						</div>
+						<!-- 프로필 -->
 
+						<!-- 내용 -->
+						<section>
+							<div
+								style="height: auto; width: 100%; padding: 40px 0px 40px 0px; text-align: content; border-bottom: 1px solid #E6E6E6; border-top: 1px solid #E6E6E6;">
+
+								<div align="center"
+									style="width: 100%; height: 80px; border: 0px solid;">
+									<font size="50pt">자기소개</font>
+									
+								</div>
+								<div style="text-align: center;">
+									<font size="5">
+									<p> 안녕하세요 심심해서 어플 가입해봤어요<br> 
+									 좋아요 많이 주세용<br>
+									 답장 빠릅니다! 너무 심심해요 ㅠㅠ
+									</p>
+									</font>
 								</div>
 							</div>
 						</section>
-					</section>
+
+						<section>
+							<div
+								style="height: auto; width: 100%; padding: 40px 0px 40px 0px; text-align: content; border-bottom: 1px solid #E6E6E6; border-top: 1px solid #E6E6E6;">
+
+								<div align="center"
+									style="width: 100%; height: 80px; border: 0px solid;">
+									<i class="far fa-laugh-squint fa-4x"></i>
+									<font size="50pt">나는 어떤 사람?</font>
+									<i class="far fa-grin-wink fa-4x"></i>
+								</div>
+								<div style="text-align: center;">
+									<font size="5">
+									<p><span><i class="fas fa-cat fa-1x"></i></span>&nbsp;야옹.... 고양이를 닮았어요 - 고양이상 회원</p>
+									<p><span><i class="fas fa-smoking-ban fa-1x"></i></span>&nbsp;켈록 켈록 담배는 좋아하지 않아요! - 비흡연 회원</p>
+									<p><span><i class="fas fa-glass-cheers fa-1x"></i></span>&nbsp;술은 좋아해요! - 음주 회원</p>
+									<p><span><i class="fas fa-cross fa-1x"></i></span>&nbsp;종교를 가지고있는 기독교인 이에요! - 기독교 회원</p>
+									<p><span><i class="fas fa-graduation-cap fa-1x"></i></span>&nbsp;나는 대학교를 졸업했어요! - 대졸자</p>
+									<p><span><i class="fas fa-dumbbell fa-1x"></i></span>&nbsp;나는 운동을 매우 좋아해요! - 근육질 회원</p>
+									<p><span><i class="fas fa-child fa-1x"></i></span>&nbsp;키는 보통 이에요! - 170cm</p>
+									
+									</font>
+								</div>
+							</div>
+						</section>
+
+						<section>
+							<div
+								style="height: auto; width: 100%; padding: 40px 0px 40px 0px; text-align: content; border-bottom: 1px solid #E6E6E6; border-top: 1px solid #E6E6E6;">
+
+								<div align="center"
+									style="width: 100%; height: 80px; border: 0px solid;">
+									<span style="color: #F5A9E1;"><i class="fas fa-heart fa-4x"></i></span>
+									<font size="50pt">당신의 호감도는?</font>
+									<span style="color: #F5A9E1;"><i class="fas fa-heart fa-4x"></i></span>
+								</div>
+								<div style="text-align: center;">
+									<font size="5">
+										<p>오늘 <span style="color: red;">12</span>명의 남성회원에게 회원님의 프로필이<br>
+										추천되었어요! 그 중 회원님은 <span style="color: red;">3</span>번 선택<br>
+										되었네요. 평균적으로 여성회원은... 
+										</p> 
+									</font>
+								</div>
+							</div>
+						</section>
+						
+						<section>
+							<div
+								style="height: auto; width: 100%; padding: 40px 0px 40px 0px; text-align: content; border-bottom: 1px solid #E6E6E6; border-top: 1px solid #E6E6E6;">
+								<div align="center"
+									style="width: 100%; height: 80px; border: 0px solid;">
+									<span><i class="fas fa-chart-pie fa-4x"></i></span>
+									<font size="50pt">당신을 위한 차트</font>
+									<span><i class="fas fa-chart-pie fa-4x"></i></span>
+								</div>
+								<div style="text-align: center;">
+								<div id="chart"></div>
+								</div>
+							</div>
+						</section>
+						
+						<!-- 내용 end-->
+					</div>
 				</div>
 			</div>
-	</div>
+	</section>
 	
+<!-- 아이콘 -->
+<script src="https://kit.fontawesome.com/37f7028146.js" crossorigin="anonymous"></script>
+<!-- 아이콘 -->
+
+<!-- 아이콘 모음 사이트:https://fontawesome.com/-->
+<i class="fas fa-smoking fa-3x"></i>
+
+<span class="fa-stack fa-lg">
+<i class="fas fa-wine-glass-alt fa-stack-1x"></i> 
+<i class="fa fa-ban fa-stack-2x text-danger"></i> 
+</span>
+
+<i class="fas fa-dog fa-3x"></i>
+
+<span class="fa-stack fa-lg"> 
+<i class="fa fa-square-o fa-stack-2x"></i> 
+<i class="fa fa-twitter fa-stack-1x"></i> 
+</span> 
+
+<i class="far fa-heart"></i>
+<span class="fa-stack fa-lg"> 
+<i style="color: red;" class="far fa-heart fa-stack-2x"></i> 
+<i style="color:#F781D8" class="fas fa-heart fa-stack-1x"></i> 
+</span> 
+
+<span class="fa-stack fa-lg"> 
+<i style="color:#FA58AC" class="fas fa-heart fa-stack-2x"></i> 
+<i style="color:#F781D8" class="fas fa-heart fa-stack-1x"></i> 
+</span> 
+
+<i class="fa fa-camera fa-3x"></i>
+
+<i class="fas fa-mobile-alt fa-3x"></i>
+
+<i class="fas fa-sms fa-3x"></i>
+
+<i class="fas fa-music fa-3x"></i>
+<!-- 아이콘 end -->
+
+<!-- 차트 -->	
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+<script type="text/javascript"> 
+var chart = c3.generate({
+  bindto: "#chart",
+  data: {
+	  columns: [
+          ['data1', 30],
+          ['data2', 120],
+          ['data3', 50],
+          ['data4', 150],
+          ['data5', 90],
+      ],
+      type : 'pie',
+      onclick: function (d, i) { console.log("onclick", d, i); },
+      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+  }
+});
+</script>
+<!-- 차트 end-->
+<!--  마이페이지 end -->

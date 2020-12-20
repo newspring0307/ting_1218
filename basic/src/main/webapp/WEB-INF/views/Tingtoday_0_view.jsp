@@ -3,6 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+
+	<style>
+		a{
+		 font-family:'Jua', sans-serif
+		}
+		
+		.pagination > li > a{		
+		height: 50px;
+		padding-top: 15px;
+		width: 45px;
+		}
+	</style>
+
+
 <!---------------------------------- header end ---------------------------------->
 <!--여기에 내용 넣으세요-->
 
@@ -12,7 +26,27 @@
 					<br><br>
 					<!-- 나의 프리미엄 -->
 				<div class="infoCenter"> 
-				
+				<!--  
+					<h1>인기글 tingToday TOP</h1><br>
+					<ul class="notifications count-3">
+
+					<li class="primary">
+					<a class="notification" href="#" >
+							<br><br><br><br><h2 style="color:white">♥하♥하♥</h2></a></li>
+					<li class="primary">
+					<a class="notification" href="#" >
+							<br><br><br><br><h2 style="color:white">♥김♥수♥환</h2></a></li>
+					<li class="primary">
+					<a class="notification" href="#" >
+							<br><br><br><br><h2 style="color:white">♥수♥환♥쌤</h2></a></li>
+					<li class="primary">
+					<a class="notification" href="#" >
+							<br><br><br><br><h2 style="color:white">♥하♥하♥</h2></a></li>
+					<li class="primary">
+					<a class="notification" href="#" >
+							<br><br><br><br><h2 style="color:white">♥하♥하♥</h2></a></li>
+
+					</ul>-->
 				</div>
 
 <!----------------------------------------------------------------------------------------->
@@ -25,20 +59,29 @@
 <br><br>
 <!--게시판 테이블-->
 	<div class = "TingToday_list">
-		<form method="post" action="updateBoard" >
+		<form method="post" action="updateBoard" enctype="multipart/form-data" >
 			<input type="text" id="title" name="title" class="form-control mt-4 mb-2" value="${board.title}" >
 				
 			<div class="form-group">
-				<textarea class="form-control" rows="10" name="content"> ${board.content}</textarea>
+				<textarea class="form-control" rows="10" name="content"> ${board.originalContent}</textarea>
 			</div>
 			<input type="hidden" name="boardIdx" class="form-control" value="${board.boardIdx}"><br>
+			<c:choose>
+			    <c:when test="${board.fsize==0}">첨부파일 없음</c:when>
+				
+			    <c:otherwise>
+			    	<!-- <a href='resources/upload/${list.fname}'> -->
+			    		<img src="resources/upload/${board.fname}" width="30%;">${board.fname}						
+			    	<!-- </a>  -->
+			    </c:otherwise>			    								
+			 </c:choose>			    								
 			
-						
-		<button type="submit" class="ui teal button" style="left:93%; position: relative;">수정</button>	
-		</form>	  		
+		<input type="file" maxlength="60" size="40" name="file">				
+		<button type="submit" class="ui teal button" style="left:84%; position: absolute;">수정</button>	
+		</form><br>	  		
 		<button type="submit" class="ui teal button" onclick="location.href='deleteBoard?boardIdx=${board.boardIdx}'">삭제</button>	
 		<button type="submit" class="ui teal button" onclick="location.href='Tingtoday_0_main'">목록</button>			
-		
+	
 	      
   
 	</div>
@@ -63,7 +106,7 @@
 리모콘		 -->
 
 <!--검색창폼-->			
-	<form action="#" method="POST" class="form-inline" align="right" style="padding-right: 10%">
+	<!-- <form action="#" method="POST" class="form-inline" align="right" style="padding-right: 10%">
 		<div class="input-group" align="right">
 			<p>							
 				<select class="form-control" name="target">
@@ -75,11 +118,11 @@
 			<button class="huge ui button">검색</button>				
 			</p>
 		</div>
-	</form>
+	</form> -->
 <!--검색창폼-->
 			
 <!--페이지-->			
-	<div class="page_num1" align="center" style="padding:3px;">
+<!-- 	<div class="page_num1" align="center" style="padding:3px;">
 		<ul class="pagination">
 		<li class="page-item"><a class="page-link" href="#"><</a></li>
 		<li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -94,8 +137,12 @@
 		<li class="page-item"><a class="page-link" href="#">10</a></li>
 		<li class="page-item"><a class="page-link" href="#">></a></li>
 		</ul>
-	</div>
+	</div> -->
 <!--페이지-->	
 	
 <br><br>	
 <br><br>
+
+<!---------------------------------- Footer start ---------------------------------->
+
+<!---------------------------------- Footer end ---------------------------------->

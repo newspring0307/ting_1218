@@ -2,6 +2,7 @@ package com.ting.service;
 
 import java.util.List;
 
+import com.ting.domain.PageVO;
 import com.ting.domain.TingBoardVO;
 
 public interface TingBoardService {
@@ -13,10 +14,15 @@ public interface TingBoardService {
 
 	// 글 삭제
 	void deleteBoard(TingBoardVO vo);
- 
+
 	// 글 상세 조회
 	TingBoardVO getBoard(TingBoardVO vo);
 
 	// 글 목록 조회
-	List<TingBoardVO> getBoardList(TingBoardVO vo);
+//	List<TingBoardVO> getBoardList(TingBoardVO vo);
+	
+	List<TingBoardVO> getList(PageVO svo);
+	
+	    
+	
 }

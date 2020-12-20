@@ -12,6 +12,14 @@
 		<typeAlias alias="board" type="com.ting.domain.TingBoardVO"/>
 		<typeAlias alias="likeReceive" type="com.ting.domain.LikeReceiveVO"/>
 		<typeAlias alias="coupleDecision" type="com.ting.domain.CoupleDecisionVO"/>
+		<typeAlias alias="pvo" type="com.ting.domain.PageVO"/>
+		
+		<typeAlias alias="funvo" type="com.ting.domain.Fun_Mbtitest_0_VO"/>
+		<typeAlias alias="myfunvo" type="com.ting.domain.Fun_my_character_VO"/>
+		<typeAlias alias="yourfunvo" type="com.ting.domain.Fun_your_character_VO"/>
+		<typeAlias alias="mytest2" type="com.ting.domain.Fun_test2_myself_VO"/>
+		<typeAlias alias="idealtest2" type="com.ting.domain.Fun_test2_ideal_VO"/>
+		<typeAlias alias="cvo" type="com.ting.domain.ClientInfoVO"/>
 	</typeAliases>
 	
 
