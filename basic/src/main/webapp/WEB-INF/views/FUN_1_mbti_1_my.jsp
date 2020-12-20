@@ -1,7 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>±âº»Æû	</title>
 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="resources/css/animate.css">
+		<link rel="stylesheet" href="resources/css/simple-line-icons.css">
+		<link rel="stylesheet" href="resources/css/magnific-popup.css">
+		<link rel="stylesheet" href="resources/css/bootstrap.css">
+		<link rel="stylesheet" href="resources/css/style.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/semantic.min.css">
+
+		<script src="resources/js/modernizr-2.6.2.min.js"></script>
+		<script
+		  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="resources/js/semantic.min.js"></script>
+		
+  <link rel="stylesheet" href="resources/css2/reset.css">
+  <link rel="stylesheet" href="resources/css2/animation.css">
+  <link rel="stylesheet" href="resources/css2/main.css">
+  <link rel="stylesheet" href="resources/css2/welcome.css">
+  <link rel="stylesheet" href="resources/css2/qna.css">
+  <link rel="stylesheet" href="resources/css2/calc.css">
+  <link rel="stylesheet" href="resources/css2/result.css">
+
+</head>
+<body>
+
+	<!---------------------------------- header start ---------------------------------->
+	<header style="background: linear-gradient(-135deg, #52D3AA, #54FFFF) fixed;">
+			<div class="container">
+			   <div class="navbar-header">
+		         <a class="navbar-brand" href="index.jsp" style="color:#1C1185">ting</a> 
+		       </div>
+		        <div id="navbar" class="navbar-collapse collapse">
+		          <ul class="nav navbar-nav navbar-right">
+		            <li class="active"><a href="index.jsp" data-nav-section="about"><span>ÆÃÀÌ¶õ?</span></a></li>
+		            <li><a href="Main_company_1_team.do" data-nav-section="team"><span>team</span></a></li>
+		            <li><a href="Tingtoday_0_main.do" data-nav-section="tingtoday"><span>ÆÃÅõÇÏÀÚ!</span></a></li>
+		            <li><a href="Premium_0_main.do" data-nav-section="premium"><span>ÇÁ¸®¹Ì¾ö</span></a></li>
+		            <li><a href="Fun_0_main.do" data-nav-section="fun"><span>FUN</span></a></li>
+		            <li><a href="Client_2_Ting_main.do" data-nav-section="contact"><span>¹®ÀÇ</span></a></li>
+					<li><button class="ui inverted teal button" id="login">·Î±×ÀÎ</button></li>
+					<li><button class="ui inverted teal button" id="register">È¸¿ø°¡ÀÔ</button></li>
+			      </ul>
+		        </div>
+		    </div>
+	</header>
 	<!---------------------------------- header end ---------------------------------->
 	
   <div id="wrap">
@@ -12,28 +63,28 @@
           I Know About You
         </h1>
         <h3 class="sec-tit">
-          20ê°€ì§€ ì§ˆë¬¸ìœ¼ë¡œ ì•Œì•„ë³´ëŠ”<br>
-          ë‚´ê°€ ì—°ì¸ì—ê²Œ ì›í•˜ëŠ” ê²ƒ<br>
+          20°¡Áö Áú¹®À¸·Î ¾Ë¾Æº¸´Â<br>
+          ³»°¡ ¿¬ÀÎ¿¡°Ô ¿øÇÏ´Â °Í<br>
           + Disney Character
         </h3>
         <span class="time-logo"></span>
-        <div>ì†Œìš” ì‹œê°„ : 3ë¶„ ë‚´ì™¸</div>
+        <div>¼Ò¿ä ½Ã°£ : 3ºÐ ³»¿Ü</div>
       </div>
       <hr class="w-line">
       <p class="w-line">
-        <span id="p-tit">ì´ í…ŒìŠ¤íŠ¸ë¡œ ë‹¹ì‹ ì€...</span><br>
-        ì—°ì¸ì—ê²Œ ë°”ë¼ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
-        í˜„ëŒ€ì¸ì—ê²Œ ìžì‹ ì˜ ìž¥ë‹¨ì ì„ ì œëŒ€ë¡œ ì•Œê³  ì´ë¯¸ì§€ë¥¼ ê´€ë¦¬í•˜ëŠ” ê²ƒì€
-        ì„±ê³µì ì¸ ì‚¬íšŒ ìƒí™œê³¼ ì¢‹ì€ í‰íŒì„ ì–»ê¸° ìœ„í•´ í•„ìˆ˜ì ìž…ë‹ˆë‹¤.
-        í…ŒìŠ¤íŠ¸ ê²°ê³¼ë¡œ ì—°ì¸ì—ê²Œ ë°”ë¼ëŠ” ê²ƒì€ ë¬´ì—‡ì¸ì§€, ë‚˜ì™€ ë‹®ì€ ë””ì¦ˆë‹ˆ ìºë¦­í„°ëŠ” ëˆ„êµ¬ì¸ì§€ ì•Œì•„ë³´ì„¸ìš”!
+        <span id="p-tit">ÀÌ Å×½ºÆ®·Î ´ç½ÅÀº...</span><br>
+        ¿¬ÀÎ¿¡°Ô ¹Ù¶ó´Â °ÍÀ» ¾Ë ¼ö ÀÖ½À´Ï´Ù.<br>
+        Çö´ëÀÎ¿¡°Ô ÀÚ½ÅÀÇ Àå´ÜÁ¡À» Á¦´ë·Î ¾Ë°í ÀÌ¹ÌÁö¸¦ °ü¸®ÇÏ´Â °ÍÀº
+        ¼º°øÀûÀÎ »çÈ¸ »ýÈ°°ú ÁÁÀº ÆòÆÇÀ» ¾ò±â À§ÇØ ÇÊ¼öÀûÀÔ´Ï´Ù.
+        Å×½ºÆ® °á°ú·Î ¿¬ÀÎ¿¡°Ô ¹Ù¶ó´Â °ÍÀº ¹«¾ùÀÎÁö, ³ª¿Í ´àÀº µðÁî´Ï Ä³¸¯ÅÍ´Â ´©±¸ÀÎÁö ¾Ë¾Æº¸¼¼¿ä!
       </p>
       <hr class="w-line">
       <div id="name-input">
-        <input type="text" placeholder="ì´ë¦„" autofocus>
+        <input type="text" placeholder="ÀÌ¸§" autofocus>
       </div>
       <p class="check-name warning"></p>
       <div class="start-wrap">
-        <button class="start">ì‹œ ìž‘</button>
+        <button class="start">½Ã ÀÛ</button>
       </div>
     </section>
     <section id="qna" class="container1">
@@ -48,7 +99,7 @@
         CALCULATING
         <div class="calc"></div>
       </div>
-      <p class="wait">ìž ì‹œ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”...</p>
+      <p class="wait">Àá½Ã ±â´Ù·ÁÁÖ¼¼¿ä...</p>
     </section>
     <section id="result" class="container1">
       <div id="score-box">
@@ -63,15 +114,15 @@
         <div class="res desc"></div>
        
       </div>
-      <hr>       
+      <hr>
    
 
       <hr>
       <div class="caution"> 
         <p>
-          ì‚¬ëžŒì€ ì„œë¡œ ì¡°ê¸ˆì”© ë‹¬ë¼ì„œ 16ê°€ì§€ ì´ë¯¸ì§€ì— ê¼­ ë§žê¸°ëŠ” ì–´ë µìŠµë‹ˆë‹¤.
-          ê²°ê³¼ê°€ ì¡°ê¸ˆ ë§žì§€ ì•Šë”ë¼ë„ ì´ëŸ° ë©´ì´ ìžˆìŒì„ ì•Œê³  ìžì‹ ì˜ ë§¤ë ¥ì„ ì–´í•„í•´ë³´ì„¸ìš”.
-          ì¢‹ì€ ì¸ì—°ì€ ì–´ëŠìƒˆ ë‹¹ì‹ ì˜ ì˜†ì— ìžˆì„ ê²ë‹ˆë‹¤!<br><br>
+          »ç¶÷Àº ¼­·Î Á¶±Ý¾¿ ´Þ¶ó¼­ 16°¡Áö ÀÌ¹ÌÁö¿¡ ²À ¸Â±â´Â ¾î·Æ½À´Ï´Ù.
+          °á°ú°¡ Á¶±Ý ¸ÂÁö ¾Ê´õ¶óµµ ÀÌ·± ¸éÀÌ ÀÖÀ½À» ¾Ë°í ÀÚ½ÅÀÇ ¸Å·ÂÀ» ¾îÇÊÇØº¸¼¼¿ä.
+          ÁÁÀº ÀÎ¿¬Àº ¾î´À»õ ´ç½ÅÀÇ ¿·¿¡ ÀÖÀ» °Ì´Ï´Ù!<br><br>
         </p>
       </div>
       <hr>
@@ -86,3 +137,60 @@
   
   
 	<!---------------------------------- Footer start ---------------------------------->
+
+   <div class="ui inverted vertical footer segment" style="background: linear-gradient(-135deg, #52D3AA, #54FFFF) fixed;">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">company</h4>
+          <div class="ui inverted link list">
+          	<a href="Main_company_1_team.do" class="item">ting Team</a>
+            <a href="index.jsp" class="item">tingÀÌ¶õ?</a>
+            <a href="Premium_0_main.do" class="item">premium</a>
+            <a href="Client_2_Ting_main.do" class="item">¹®ÀÇÇÏ±â</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+          	<a href="Tingtoday_0_main.do" class="item">ting Today</a>
+            <a href="FUN_1_mbti_1_my.do" class="item">MBTI</a>
+            <a href="FUN_2_test1.do" class="item">¿¬¾ÖÅ×½ºÆ®</a>
+            <a href="FUN_2_test2.do" class="item">ÀÌ»óÇüÅ×½ºÆ®</a>
+          </div>
+        </div>
+
+        <div class="seven wide column">
+          <h4 class="ui inverted header">ting Info</h4>
+          <ul class="fh5co-contact-info">
+						<li class="fh5co-contact-address " >
+						<i class="icon-home" ></i>&nbsp;ºÎÃµ½Ã ¼Ò»ç±¸ ½É°îº»µ¿</li>
+						<li><i class="icon-phone"></i>&nbsp;(123) 456-789</li>
+						<li><i class="icon-envelope"></i>&nbsp;ting_manager@gmail.com</li>
+			</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------------------------- Footer end ---------------------------------->
+
+
+	<!---------------------------------script----------------------------------------------->
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/jquery.easing.1.3.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.waypoints.min.js"></script>
+	<script src="resources/js/jquery.stellar.min.js"></script>
+	<script src="resources/js/jquery.countTo.js"></script>
+	<script src="resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="resources/js/magnific-popup-options.js"></script>
+
+	<script src="resources/js/main.js"></script>
+
+	</body>
+</html>
+
+  
+</body>
+</html>

@@ -5,7 +5,27 @@ const tabletMQL = window.matchMedia("all and (min-width: 768px)");
 const pcMQL = window.matchMedia("all and (min-width: 1024px)");
 const ENDPOINT = 20;
 const select = [];
+let rsval= [];
+let mbti='';
 let qIdx = -1;
+
+/*mbti 는 결과대로 들어감*/
+/*문항별은 수정 중임 데이터를 넘기지 않을 때는 인식을 잘하지만
+  넘기려고 할 때 mval, score 가 select 때문에 넘겨주질 못함
+ select부분 점검 시켜주면 mval 인식함 그 부분만 수정되면 됨*/
+
+/*
+const test_result = () => {
+let temp = [];
+for (let i = 0; i < ENDPOINT; i++) {
+
+	  temp.push(qnaList[i].a[select[i]].mval);
+  	  console.log(temp)
+  }
+  return temp;
+}
+*/
+
 
 const goTo = (dest) => { 
   let elem;
@@ -26,7 +46,6 @@ const goTo = (dest) => {
   });
 }
 
-
 const copy = () => {
   const tmp = document.createElement('textarea');
   document.body.appendChild(tmp);
@@ -43,6 +62,7 @@ const calcScore = () => {
   }
   return point;
 }
+
 
 const sortResult = (point) => {
   let num = 0;
@@ -91,18 +111,20 @@ const goResult = () => {
     wrap.style.marginTop = '115px';
   }
 
+
   const result = document.getElementById('result');
   const point = calcScore();
   const grade = sortResult(point);
   const pTitle = document.querySelector('.p');
   const res_point = document.querySelector('.point');
   const pin = document.querySelector('.pin');
-  const img_url = 'img2/image-' + grade + '.png';
+  const img_url = '/resources/img2/image-' + grade + '.png';
   const res_img = document.createElement('img');
   const res_img_div = document.querySelector('.art');
   const animal = document.querySelector('.result');
   const desc = document.querySelector('.res');
 
+  mbti=infoList[grade].name;
   pTitle.innerHTML = u_name.value + ' 님의 점수는...';
   res_point.innerHTML = point + '점';
   pin.style.marginLeft = infoList[grade].mLeft;
@@ -118,10 +140,22 @@ const goResult = () => {
     result.style.display = 'block';
   
     result.style.animation =
-      'going-up 0.5s, ' +
-      'fade-in 0.5s forwards';
+      'going-up 0.1s, ' +
+      'fade-in 0.1s forwards';
   }, 600);
 
+  $.ajax({ 
+		url :'mbti_test', 
+		type : 'GET', 
+		dataType : 'json', 
+		data : { "rsval" : rsval.join(','), "mbti": mbti}, 
+		success: function(data){ console.log("성공"); } 
+	});
+  
+  console.log(rsval);
+  console.log(mbti);
+
+  
 }
 
 const end = () => {
@@ -146,7 +180,8 @@ const end = () => {
       'fade-out 0.4s forwards';
     setTimeout(() => {
       calc.style.display = 'none';
-      goResult();
+      goResult();	
+		
     }, 400);
   }, 9000);
 }
@@ -230,7 +265,7 @@ const load = () => {
   u_name.addEventListener('blur', () => {
     try {
       if (u_name.value.length < 1) {
-        throw '이름을 입력하고 시작해 주세요.';
+        throw '시작을 눌러주세요!';
       }
       msg.innerHTML = '';
     } catch (err) {
@@ -241,7 +276,7 @@ const load = () => {
   start_btn.addEventListener('click', () => {
     try {
       if (u_name.value.length < 1) {
-        throw '이름을 입력하고 시작해 주세요.';
+        throw '시작을 눌러주세요';
       }
       msg.innerHTML = '';
       start_btn.disabled = true;
@@ -252,5 +287,11 @@ const load = () => {
   });
 
 }
+
+
+//rsval=test_result();
+//아래 임시
+rsval=[11,22,31,42,51,62,71,81,91,101,112,121,132,142,152,162,171,181,191,202];
+
 
 window.onload = load();
