@@ -44,23 +44,25 @@ public class ClientInfoController {
 	// 로그인 액션 : http://localhost:8880/basic-1.0.0-BUILD-SNAPSHOT/login 요청 받음
 	
 	@PostMapping(value = "/login")
-	public String login(HttpSession session, ClientInfoVO clientInfoVO) throws IOException {
+	public ModelAndView loginf(HttpSession session,HttpServletRequest request, ClientInfoVO clientInfoVO) throws IOException {
 		System.out.println("login request, id : " + clientInfoVO.getEmail());
 
 
 
 		// 로그인 아이디, 패스워드 넘겨서 데이터베이스 조회, 로그인 정보를 돌려 받는다. 아이디 저장해야함 받은 아이디로 저장
 		ClientInfoVO loginCheck = clientInfoService.login(clientInfoVO);
-		
+		ModelAndView mav = new ModelAndView();
 		// 로긘이 성공한다면 세션에 UID 설정 후 메인으로 보낸다
 		if (!ObjectUtils.isEmpty(loginCheck)) {
 			session.setAttribute("UID", loginCheck.getEmail());
 			session.setAttribute("clientIdx", loginCheck.getClientIdx());
 			System.out.println(session.getAttribute("clientIdx"));
-			return "redirect:/";
+			mav.setViewName("index");
+			return mav;
 		} else {
 			// 로긘 실패하면 Main_login_0
-			return "/Main_login_0";
+			mav.setViewName("Main_login_0");
+			return mav;
 		}
 
 		// return "redirect:/login"; return "/login";session.setAttribute("UID",
@@ -70,9 +72,11 @@ public class ClientInfoController {
 	// 로그아웃 : http://localhost:8880/basic-1.0.0-BUILD-SNAPSHOT/logout 요청 받음
 	// basic-1.0.0-BUILD-SNAPSHOT 은 서버 contextPath에 저장 되있음
 	@GetMapping(value = "/logout")
-	public String userLogout(HttpSession session) {
+	public ModelAndView loginfout(HttpSession session,HttpServletRequest request) {
 		session.invalidate();
-		return "redirect:/";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
 	}
 
 	// 회원가입 폼
