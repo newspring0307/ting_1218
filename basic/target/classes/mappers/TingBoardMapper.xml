@@ -69,7 +69,7 @@
 	   ) where r_num between  #{start} and #{end}
 	</select>
 	
-	<select id="totalCount" resultType="int" parameterType="pvo">
+	<select id="getTotalCount" resultType="int">
 		select count(*) cnt from tingBoard
 		<if test="searchType != null">
 			<where>

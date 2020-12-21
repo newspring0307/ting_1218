@@ -25,14 +25,13 @@ public class ClientController {
 	@Autowired
 	private IdealTypeService idealTypeService;
 	
-	//고객 상세정보 입력 메소드
 	@RequestMapping("/insertClientDetailInfo")
 	public String insertClientDetailInfo(ClientDetailInfoVO vo,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		System.out.println("실행되는지확인");
 		clientDetailInfoService.insertClientDetailInfo(vo);
-		return "redirect:/Client_4_detailInsert2";
+		return "redirect:/Client_4_interestInsert";
 	}
 	
 	//고객 사진 입력 메소드

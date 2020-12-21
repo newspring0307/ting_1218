@@ -91,7 +91,7 @@ public class TingBoardController {
 /*		
 @RequestMapping("/Tingtoday_0_main")
 public void getBoardList(TingBoardVO vo, Model m){
-//BoardVO vo: 이전화면에서 넘어오는 파라미터 저장(현재는 데이터 없음)
+//BoardVO vo: �씠�쟾�솕硫댁뿉�꽌 �꽆�뼱�삤�뒗 �뙆�씪誘명꽣 ���옣(�쁽�옱�뒗 �뜲�씠�꽣 �뾾�쓬)
 
 System.out.println("1"); List<TingBoardVO> result =
 tingBoardService.getBoardList(vo);

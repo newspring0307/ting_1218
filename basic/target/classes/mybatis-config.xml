@@ -14,6 +14,11 @@
 		<typeAlias alias="coupleDecision" type="com.ting.domain.CoupleDecisionVO"/>
 		<typeAlias alias="pvo" type="com.ting.domain.PageVO"/>
 		
+		<typeAlias alias="interest" type="com.ting.domain.InterestVO"/>
+		<typeAlias alias="clientInterest" type="com.ting.domain.ClientInterestVO"/>
+		<typeAlias alias="charmingPoint" type="com.ting.domain.CharmingPointVO"/>
+		<typeAlias alias="clientcharmingPoint" type="com.ting.domain.ClientCharmingPointVO"/>
+		
 		<typeAlias alias="funvo" type="com.ting.domain.Fun_Mbtitest_0_VO"/>
 		<typeAlias alias="myfunvo" type="com.ting.domain.Fun_my_character_VO"/>
 		<typeAlias alias="yourfunvo" type="com.ting.domain.Fun_your_character_VO"/>
