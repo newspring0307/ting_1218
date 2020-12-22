@@ -47,7 +47,7 @@ public class TingBoardVO {
 	
 
 	//*************************************************
-	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	MultipartFile file;	// write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
 	
 	public MultipartFile getFile() {
 		return file;
@@ -55,17 +55,19 @@ public class TingBoardVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 		
-		// 업로드 파일 접근
+		// �뾽濡쒕뱶 �뙆�씪 �젒洹�
 		if(! file.isEmpty()){
 			this.fname = file.getOriginalFilename();
 			this.fsize = file.getSize();
 			
 			//***********************************************
-			// 해당 경로로 변경
-			File f = new File("C:\\Users\\USER\\git\\TeamBTing\\ting\\src\\main\\webapp\\resources\\upload\\"+fname);
+			// �빐�떦 寃쎈줈濡� 蹂�寃�
+			File f = new File("C:\\Users\\User\\git\\ting_1218\\basic\\src\\main\\webapp\\resources\\upload\\"+fname);
 			
 			try {
+				System.out.println("에러1");
 				file.transferTo(f);
+				System.out.println("에러2");
 				
 			} catch (IllegalStateException e) {				
 				e.printStackTrace();

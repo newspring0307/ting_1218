@@ -2,6 +2,8 @@ package com.ting.controller;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,8 @@ public class TingBoardController {
 	public TingBoardDAO tingBoardDAO;
 	
 	@RequestMapping("/insertBoard")
-	public String insertBoard(TingBoardVO vo) {
+	public String insertBoard(TingBoardVO vo,HttpSession session) {
+		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		System.out.println("======");
 		tingBoardService.insertBoard(vo);
 		return "redirect:/Tingtoday_0_main";
@@ -79,9 +82,10 @@ public class TingBoardController {
 
 
 	@RequestMapping("/Tingtoday_0_view")
-	public void getBoard(TingBoardVO vo,Model m) {
+	public String getBoard(TingBoardVO vo,Model m) {
 	   TingBoardVO result = tingBoardService.getBoard(vo);
 	   m.addAttribute("board",result);
+	   return "/Tingtoday_0_view";
 	}
 	
 

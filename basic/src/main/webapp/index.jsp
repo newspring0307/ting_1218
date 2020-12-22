@@ -451,30 +451,29 @@
 						<li><i class="icon-globe"></i> <a href="#">ting.co</a></li>
 					</ul>
 				</div>
-				<div class="col-md-6 to-animate" >
-					<h3 >문의</h3>
-					<div class="form-group " >
-						<label for="name" class="sr-only">Name</label>
-						<input id="name" class="form-control" placeholder="이름" type="text" >
+				
+				
+				<form action="qna_add"  method="post">
+				<%-- 이자리는 로그인 한 후 회원의 아이값을 기준으로 문의 게시판을 작성
+					value=22 값은 변수로 변경 가능 
+					이름, 이메을 , 헨드폰도 모두 자동으로 불러 올영역 
+				 --%>
+				<input type="hidden" name="boardTypeIdx" value="0">					
+				<div class="col-md-6 to-animate">
+					<h3>문의2</h3>
+					<div class="form-group ">
+						<label for="email" class="sr-only">제목</label> 
+						<input id="title" class="form-control" placeholder="제목" type="text" name="title">
 					</div>
 					<div class="form-group ">
-						<label for="email" class="sr-only">Email</label>
-						<input id="email" class="form-control" placeholder="이메일" type="email" >
+						<label for="message" class="sr-only">내용</label>
+						<textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="내용"></textarea>
 					</div>
 					<div class="form-group ">
-						<label for="phone" class="sr-only">Phone</label>
-						<input id="phone" class="form-control" placeholder="핸드폰" type="text" >
+						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit">
 					</div>
-					<div class="form-group ">
-						<label for="message" class="sr-only">Message</label>
-						<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="내용" ></textarea>
-					</div>
-					<div class="form-group ">
-						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit" id="send_ask" >
-					</div>
-					<div>
 				</div>
-			</div>
+				</form>
 		</div>
 			</section>
 	<footer id="footer" role="contentinfo">

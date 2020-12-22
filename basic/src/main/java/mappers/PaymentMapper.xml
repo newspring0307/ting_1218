@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PaymentDAO">
+
+
+	<insert id="insert_payment" parameterType="payment">
+	
+		insert into payment values(#{clientIdx},#{goodIdx},sysdate,#{method})
+	
+	</insert>
+
+	<select id="select_Payment" resultType="payment">
+	
+		select * from payment 
+		
+	</select>
+	
+	<update id="update_heart" parameterType="clientDetailInfo">
+	
+	
+		update 
+		clientDetailInfo 
+		set totalHeart = totalHeart +10
+		where clientIdx=2
+	</update>
+	
+	
+
+	
+
+	 <resultMap type="payment" id="paymentResult">
+		<id property="goodIdx" column="goodIdx" />
+		<result property="when" column="when" />
+		<result property="method" column="method" />
+				
+		<association property="goods" column="goodIdx" javaType="goods">
+			<id property="goodIdx" column="goodIdx" />
+			<result column="price" property="price"/>
+			<result column="goodName" property="goodName"/>
+		</association>
+	</resultMap>
+
+
+	
+	
+
+ <select id="selectPayment" resultMap="paymentResult" >
+	select p.when ,g.goodName, g.price , p.method   
+	from payment p ,  goods g 
+	where p.goodIdx = g.goodIdx and p.clientIdx = #{clientIdx}
+	
+</select>	 
+
+
+
+
+
+</mapper>

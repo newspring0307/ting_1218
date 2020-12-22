@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    pageEncoding="UTF-8"%>
+
+
+<style>
+
+</style>
 
     <!-- JoinForm.jsp에서 입력한 정보를 넘겨 받아 처리한다. -->
     <% 
         // 한글 깨짐을 방지하기 위한 인코딩 처리
-        request.setCharacterEncoding("euc-kr"); 
+        request.setCharacterEncoding("UTF-8"); 
     
         // getParameter()를 이용해 넘겨진 파라미터 값을 얻어올 수 있다.
         // 파라미터 값을 얻을때 name= 에 지정해둔 값과 동일한 값을 인자로 지정해야 된다.
@@ -24,7 +28,7 @@
         
     %>
 	<!---------------------------------- header start ---------------------------------->
-
+	
 <!---------------------------------- header end ---------------------------------->
 
 <!--여기에 내용 넣으세요-->
@@ -81,7 +85,7 @@
 			<hr>
 		<!-- 이용약관동의 -->
 		<div class="form-control" align="center" style="width: 520px; height : 150px;padding:30px;">위의 입력한 정보가 맞으며 <br>개인정보 이용에 동의합니다.<br>
-			<input type="checkbox" onclick="alert('이용약관에 동의하셧습니다.');">
+			<input type="checkbox" onclick="alert('이용약관에 동의하셨습니다.');">
 		</div><br> <br>
 		<!-- 이용약관동의 -->	
 		
@@ -106,7 +110,7 @@
 
 
 	<!---------------------------------script----------------------------------------------->
-
+	
 	
 	
 	<script language="javascript">
@@ -120,4 +124,4 @@
 	}	
 	  </script>
 	  
-	  
+	

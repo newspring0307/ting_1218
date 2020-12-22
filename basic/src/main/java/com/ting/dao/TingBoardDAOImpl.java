@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ting.domain.PageVO;
 import com.ting.domain.TingBoardVO;
 
-@Repository("TingBoardDAO")
+@Repository("tingBoardDAO")
 public class TingBoardDAOImpl implements TingBoardDAO {
 	
 	@Autowired 
@@ -52,6 +52,6 @@ public class TingBoardDAOImpl implements TingBoardDAO {
 	
 	@Override
 	public int getTotalCount() {//�쟾泥� �뜲�씠�꽣瑜� 湲곗��쑝濡� �럹�씠吏�瑜� �굹�닃寃껋씠湲� �븣臾몄뿉..
-		return mybatis.selectOne("TingBoardDAO.getTotalCount");
+		return mybatis.selectOne("TingBoardDAO.totalCount");
 	}	
 }

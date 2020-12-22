@@ -65,7 +65,6 @@
 			<div class="form-group">
 				<textarea class="form-control" rows="10" name="content" placeholder="내용을 입력해주세요" required></textarea>
 			</div>
-			<input type="number" name="clientIdx" class="form-control" placeholder="clientIdx" required><br>
 				<input type="file" maxlength="60" size="40" name="file"><br>									
 			<button type="submit" class="ui teal button">저장</button>			
 		</form>	

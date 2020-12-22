@@ -18,6 +18,106 @@
 
 
 <!---------------------------------- header end ---------------------------------->
+	<section id="fh5co-testimonials" data-section="love">
+		<div class="container">
+			<div class="row">
+				<div align="center"
+					style="width: 100%; height: 100%; border: 0px solid; border-radius: 2em;"
+					class="col-md-12 section-heading text-center">
+					<font size="50pt">TingToday 게시판</font>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!--  게시판상세페이지 -->
+
+	<section id="fh5co-intro" data-section="love">
+		<div class="container">
+			<div class=" section-heading text-center">
+				<div align="center"
+					style="width: 70%; height: auto; border: 1px solid #E6E6E6; border-radius: 1em; margin: 0 auto;">
+					
+					<div style="height: auto; width: 90%; text-align:left; padding-bottom: 40px">
+						<p><h1>${board.title}</h1></p>
+						<div class="WriterInfo" style="padding-bottom: 15px">
+							<a
+								href="#"
+								class="thumb"><img
+								src="https://t1.daumcdn.net/cfile/tistory/243FE450575F82662D"
+								alt="프로필 사진" width="80" height="80" align="left" style="margin-right: 20px"></a>
+					
+							<div class="profile_area">
+								<div class="profile_info">
+									<div  style="padding-top: 10px">
+										<a id="" href="#" role="button"
+											class="nickname"> <h1>${sessionScope.UID}</h1>
+										</a>
+									</div>
+								</div>
+								<div class="article_info" style="padding-top: 10px">
+									<span class="date">2020.12.13 10:00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				<!-- 내용 -->
+					<div
+						style="height: auto; width: 90%; padding:40px 0px 40px 0px ; text-align:left; border-bottom: 1px solid #E6E6E6; border-top: 1px solid #E6E6E6;">
+						<c:choose>
+			    <c:when test="${board.fsize==0}">첨부파일 없음</c:when>
+				
+			    <c:otherwise>
+			    	<!-- <a href='resources/upload/${list.fname}'> -->
+			    		<img src="resources/upload/${board.fname}" width="30%;"><br/>					
+			    	<!-- </a>  -->
+			    </c:otherwise>			    								
+			 </c:choose><br/>	<br/>	<br/>	<br/>	<br/>	<br/>		
+						<font size="5">${board.originalContent}
+						</font>
+					</div>
+				<!-- 내용 end-->
+				<div  style="width: 90%; text-align:left">
+					<p><h1>댓글</h1></p>
+					<div
+						style="height: auto; width: 90%; padding: 40px 0px 40px 0px; text-align: left; border-top: 1px solid #E6E6E6;">
+						<font size="3">로맨틱한 브로콜리 : 안녕하세요 여러분~ 요즘 날씨가 참 추워요</font>
+					</div>
+					<div
+						style="height: auto; width: 90%; padding: 40px 0px 40px 0px; text-align: left; border-top: 1px solid #E6E6E6;">
+						<font size="3">달콤한 치킨 : 외로움을 달래줄 방법은 무엇이 있을까요?</font>
+					</div>
+					<div
+						style="height: auto; width: 90%; padding: 40px 0px 40px 0px; text-align: left; border-top: 1px solid #E6E6E6;">
+						<font size="3">닉네임 : 이런식으로 볼수가 있네요.</font>
+					</div>
+				</div>
+					<div style="width: 90%; height: auto; border: 1px solid #E6E6E6; border-radius: 1em; margin-bottom: 40px">
+						<strong>
+						<p><h4 style="width: 90%; text-align:left; margin: 0 auto;">닉네임</h4></p>
+						<font size="5">${board.originalContent}
+						</font>
+							 <textarea class="autosize" rows="1" onkeydown="resize(this)" onkeyup="resize(this)" placeholder="댓글을 남겨보세요" style=" width: 90%; height:17px; border: none;  resize: none; outline: none;"></textarea>
+							<div style="width: 90%; text-align:right;"><button style="border: 0;outline: 0; background-color: #FFFFFF"><h3>등록</h3></button></div>
+						</strong><!-- outline: none; -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<!-- 댓글 -->
+<script>
+function resize(obj) {
+  obj.style.height = "1px";
+  obj.style.height = (12+obj.scrollHeight)+"px";
+}
+</script>
+<!-- 댓글 end -->
 <!--여기에 내용 넣으세요-->
 
 			<div id="mainContainer" class="container">
@@ -75,7 +175,7 @@
 			    	<!-- </a>  -->
 			    </c:otherwise>			    								
 			 </c:choose>			    								
-			
+			<!-- 여기서 글작성자, 세션 회원번호 비교해서 버튼 보여주기  -->
 		<input type="file" maxlength="60" size="40" name="file">				
 		<button type="submit" class="ui teal button" style="left:84%; position: absolute;">수정</button>	
 		</form><br>	  		

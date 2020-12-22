@@ -85,7 +85,7 @@
 					    <c:when test="${list.fsize==0}">첨부파일 없음</c:when>
 					    <c:otherwise>
 					    	<!-- <a href='resources/upload/${list.fname}'> -->
-					    		<img src="resources/upload/${list.fname}" width="50">${list.fname}
+					    		<img src="resources/upload/${list.fname}" width="50">
 					    	<!-- </a>  -->
 					    </c:otherwise>
 					 </c:choose>					  

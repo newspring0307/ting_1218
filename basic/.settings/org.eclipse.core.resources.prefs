@@ -1,5 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/ting/controller/ClientController.java=UTF-8
+encoding//src/main/java/com/ting/controller/GoodsController.java=UTF-8
+encoding//src/main/java/com/ting/controller/TingBoardController.java=UTF-8
+encoding//src/main/java/com/ting/dao/TingBoardDAOImpl.java=UTF-8
+encoding//src/main/java/com/ting/domain/BoardQnaVO.java=UTF-8
+encoding//src/main/java/com/ting/domain/TingBoardVO.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/Client_0_main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/Client_1_info_PWreset2.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/Client_1_tingtoday_replylist.jsp=UTF-8

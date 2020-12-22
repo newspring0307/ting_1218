@@ -57,7 +57,7 @@
 			$(".likesend").click(function(){
 				alert("하트가 부족해요ㅜㅜ ");
 				$(".likesend").prop("disabled", true);
-			})
+			});
 		}
 	});
 

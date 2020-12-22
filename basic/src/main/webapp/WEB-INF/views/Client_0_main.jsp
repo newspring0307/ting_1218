@@ -12,22 +12,22 @@
 							<div class="" style="margin-right: 0px; margin-left: 100px">
 								<a href="#" class="thumb"> <img class=""
 									src="https://t1.daumcdn.net/cfile/tistory/243FE450575F82662D"
-									alt="프로필 사진" align="left"
-									style="width: 200px; height: 200px; margin-right: 20px">
+									alt="프로필 사진" align="left" 
+									style="width: 200px; height: 200px; margin-right:20px; border-radius: 70%; border:1px solid white;">
 								</a>
 							</div>
 							<div
 								style="padding-top: 30px; float: right; width: 50%; height: %; text-align: center;">
 								<p>
-									<button class="ui inverted teal button" id=""
+									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
 										style="padding: 15px 30px; font-size: 16px;">받은 좋아요</button>
 								</p>
 								<p>
-									<button class="ui inverted teal button" id=""
+									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
 										style="padding: 15px 30px; font-size: 16px;">보낸 좋아요</button>
 								</p>
 								<p>
-									<button class="ui inverted teal button" id=""
+									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
 										style="padding: 15px 30px; font-size: 16px;">상세정보 수정</button>
 								</p>
 							</div>
