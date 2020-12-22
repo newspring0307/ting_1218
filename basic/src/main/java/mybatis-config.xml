@@ -26,6 +26,7 @@
 		<typeAlias alias="idealtest2" type="com.ting.domain.Fun_test2_ideal_VO"/>
 		<typeAlias alias="cvo" type="com.ting.domain.ClientInfoVO"/>
 		<typeAlias type="com.ting.domain.LoginLogVO" alias="lvo"/>
+		<typeAlias type="com.ting.domain.TingBoardLogVO" alias="tlvo"/>
 	</typeAliases>
 	
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ting.domain.PageVO;
 import com.ting.domain.TingBoardVO;
 
-@Repository("TingBoardDAO")
+@Repository("tingBoardDAO")
 public class TingBoardDAOImpl implements TingBoardDAO {
 	
 	@Autowired 

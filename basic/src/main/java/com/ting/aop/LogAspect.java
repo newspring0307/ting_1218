@@ -11,8 +11,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ting.dao.LoginLogDAO;
+import com.ting.dao.TingBoardLogDAO;
 import com.ting.domain.ClientInfoVO;
 import com.ting.domain.LoginLogVO;
+import com.ting.domain.TingBoardLogVO;
+import com.ting.domain.TingBoardVO;
 
 
 @Component
@@ -21,6 +24,9 @@ public class LogAspect {
 
 	@Autowired
 	private LoginLogDAO loginLogDAO;
+	
+	@Autowired
+	private TingBoardLogDAO tingBoardLogDAO;
 	
 	@Around("execution(* com.ting.controller.ClientInfoController.loginf*(..))")
 	public ModelAndView loginLogger(ProceedingJoinPoint jp) {
@@ -75,6 +81,43 @@ public class LogAspect {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("insert!===================");
+		return rpath;
+
+	}
+	
+	@Around("execution(* com.ting.controller.TingBoardController.getBoard(..))")
+	public String TingBoardLogger(ProceedingJoinPoint jp) {
+		// ���ڰ�
+		Object[] fd = jp.getArgs();
+		String rpath = null;
+		// �޼��� �̸�
+		String methodName = jp.getSignature().getName();
+
+			// ���ǰ��� �ִٸ� �α��� ���� ����
+			TingBoardLogVO vo = new TingBoardLogVO();
+			try {
+				rpath = (String) jp.proceed(); // target�� �޼��带 ȣ���Ѵ�.
+				// ù��°���ڿ� �ι��� �ΰ����� ������ �ν��Ͻ� �� ��쿡�� ����
+				if (fd[0] instanceof HttpSession && fd[1] instanceof HttpServletRequest && fd[2] instanceof TingBoardVO) {
+					HttpSession session = (HttpSession) fd[0];
+					HttpServletRequest request = (HttpServletRequest) fd[1];
+					TingBoardVO tingBoardvo = (TingBoardVO) fd[2];
+					Object clientIdx = session.getAttribute("clientIdx");
+					// ������ ���� ���ͼ� ������ ��츸
+					if (clientIdx != null) {
+						// �����ͺ��̽��� ������ ���� ����
+						vo.setBoardIdx(tingBoardvo.getBoardIdx());
+						vo.setClientIdx(((int)clientIdx));
+						vo.setReip(request.getRemoteAddr());
+						vo.setUagent("web");
+						tingBoardLogDAO.TingBoardLogging(vo);
+					}
+				}
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+		
 		System.out.println("insert!===================");
 		return rpath;
 
