@@ -27,4 +27,6 @@ public interface ClientDetailInfoDAO {
 	
 	// 하트 소모
 	public	void reduceTotalHeart(ClientDetailInfoVO vo);
+	// 하트 증가
+	public	void increaseTotalHeartPerDay();
 }

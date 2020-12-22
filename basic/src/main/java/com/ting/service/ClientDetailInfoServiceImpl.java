@@ -52,4 +52,9 @@ public class ClientDetailInfoServiceImpl implements ClientDetailInfoService{
 	public void reduceTotalHeart(ClientDetailInfoVO vo) {
 		clientDetailInfoDAO.reduceTotalHeart(vo);
 	};
+	
+	// 하트 증가
+	public	void increaseTotalHeartPerDay() {
+		clientDetailInfoDAO.increaseTotalHeartPerDay();
+	};
 }

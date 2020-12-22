@@ -27,4 +27,7 @@ public interface ClientDetailInfoService {
 	
 	//하트 개수
 	int getTotalHeart(ClientDetailInfoVO vo);
+	
+	// 하트 증가
+	void increaseTotalHeartPerDay();
 }

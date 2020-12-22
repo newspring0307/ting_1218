@@ -52,4 +52,9 @@ public class ClientDetailInfoDAOImpl implements ClientDetailInfoDAO{
 	public void reduceTotalHeart(ClientDetailInfoVO vo) {
 		mybatis.update("ClientDetailInfoDAO.reduceTotalHeart", vo);
 	};
+	
+	// 하트 증가
+	public	void increaseTotalHeartPerDay() {
+		mybatis.update("ClientDetailInfoDAO.increaseTotalHeartPerDay");
+	};
 }

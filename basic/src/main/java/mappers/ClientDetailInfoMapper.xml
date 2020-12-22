@@ -64,5 +64,11 @@
 		WHERE clientIdx = #{clientIdx}
 	</update>
 	
+	<!-- 매일 아침 9시 하트 증가 -->
+	<update id="increaseTotalHeartPerDay" >
+		UPDATE clientDetailInfo SET
+		totalHeart = totalHeart+1
+	</update>
+	
 	
 </mapper>
