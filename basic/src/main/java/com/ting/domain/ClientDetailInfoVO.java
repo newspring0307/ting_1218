@@ -27,6 +27,7 @@ public class ClientDetailInfoVO {
 	
 	private Date lastUpdate;
 	private String selfIntro;
+	private Fun_Mbtitest_0_VO funvo;
 	
 
 	
@@ -171,6 +172,15 @@ public class ClientDetailInfoVO {
 	public void setSelfIntro(String selfIntro) {
 		this.selfIntro = selfIntro;
 	}
+	public Fun_Mbtitest_0_VO getFunvo() {
+		return funvo;
+	}
+	public void setFunvo(Fun_Mbtitest_0_VO funvo) {
+		this.funvo = funvo;
+	}
+	
+	
+	
 	
 	
 	

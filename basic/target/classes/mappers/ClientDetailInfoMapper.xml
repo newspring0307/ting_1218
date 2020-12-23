@@ -21,11 +21,46 @@
 		WHERE clientIdx = #{clientIdx}
 	</update>
 	
-	<select id="getClientDetailInfo" parameterType="clientDetailInfo" resultType="clientDetailInfo">
+	
+	<resultMap type="clientDetailInfo" id="clientDetailInfoAndMBTI">
+		<id property="clientIdx" column="clientIdx" />
+		<result property="name" column="name" />
+		<result property="nickname" column="nickname" />
+		<result property="gender" column="gender" />
+		<result property="job" column="job" />
+		<result property="age" column="age" />
+		<result property="photo" column="photo" />
+		<result property="religion" column="religion" />
+		<result property="education" column="education" />
+		<result property="height" column="height" />
+		<result property="bodyShape" column="bodyShape" />
+		<result property="drink" column="drink" />
+		<result property="smoke" column="smoke" />
+		<result property="selfIntro" column="selfIntro" />
+		<result property="totalHeart" column="totalHeart" />
+		<!--property="sphone" getSphone() column="sabun" => s.sabun sabun javaType="sphonevo" 
+			: 참조하는 실제 VO -->
+		<association property="funvo" column="clientIdx"
+			javaType="funvo">
+			<id property="clientIdx" column="clientIdx" />
+			<result property="Fun_mbti_result" column="Fun_mbti_result" />
+		</association>
+	</resultMap>
+	<select id="getClientDetailInfo" parameterType="clientDetailInfo" resultMap="clientDetailInfoAndMBTI">
+		select c.name, c.nickname, c.gender,c.job,c.age,c.photo,c.religion
+		,c.education,c.height,c.bodyShape,c.drink,c.smoke,c.selfintro
+		,c.totalHeart,f.Fun_mbti_result
+		from clientDetailInfo c, Fun_mbti f
+		where c.clientIdx = f.clientIdx
+		and c.clientIdx=#{clientIdx}
+		
+	</select>
+	
+	<!-- <select id="getClientDetailInfo" parameterType="clientDetailInfo" resultType="clientDetailInfo">
 		SELECT *
 		FROM clientDetailInfo
 		WHERE clientIdx = #{clientIdx}
-	</select>
+	</select> -->
 	
 	
 

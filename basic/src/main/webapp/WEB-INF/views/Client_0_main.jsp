@@ -10,7 +10,7 @@
 							style="padding-bottom: 225px; padding-top: 15px">
 							<div class="" style="margin-right: 0px; margin-left: 100px">
 								<a href="#" class="thumb"> <img class=""
-									src="https://t1.daumcdn.net/cfile/tistory/243FE450575F82662D"
+									src="resources/img_photo/${myDetailInfo.photo}"
 									alt="프로필 사진" align="left" 
 									style="width: 200px; height: 200px; margin-right:20px; border-radius: 70%; border:1px solid white;">
 								</a>
@@ -45,9 +45,7 @@
 								</div>
 								<div style="text-align: center;">
 									<font size="5">
-									<p> 안녕하세요 심심해서 어플 가입해봤어요<br> 
-									 좋아요 많이 주세용<br>
-									 답장 빠릅니다! 너무 심심해요 ㅠㅠ
+									<p> ${myDetailInfo.selfIntro}
 									</p>
 									</font>
 								</div>
@@ -67,12 +65,13 @@
 								<div style="text-align: center;">
 									<font size="5">
 									<p><span><i class="fas fa-cat fa-1x"></i></span>&nbsp;야옹.... 고양이를 닮았어요 - 고양이상 회원</p>
-									<p><span><i class="fas fa-smoking-ban fa-1x"></i></span>&nbsp;켈록 켈록 담배는 좋아하지 않아요! - 비흡연 회원</p>
-									<p><span><i class="fas fa-glass-cheers fa-1x"></i></span>&nbsp;술은 좋아해요! - 음주 회원</p>
-									<p><span><i class="fas fa-cross fa-1x"></i></span>&nbsp;종교를 가지고있는 기독교인 이에요! - 기독교 회원</p>
-									<p><span><i class="fas fa-graduation-cap fa-1x"></i></span>&nbsp;나는 대학교를 졸업했어요! - 대졸자</p>
-									<p><span><i class="fas fa-dumbbell fa-1x"></i></span>&nbsp;나는 운동을 매우 좋아해요! - 근육질 회원</p>
-									<p><span><i class="fas fa-child fa-1x"></i></span>&nbsp;키는 보통 이에요! - 170cm</p>
+									<p>흡연여부:<span><i class="fas fa-smoking-ban fa-1x"></i></span>&nbsp;${myDetailInfo.smoke}</p>
+									<p>음주여부:<span><i class="fas fa-glass-cheers fa-1x"></i></span>&nbsp;${myDetailInfo.drink}</p>
+									<p>종교:<span><i class="fas fa-cross fa-1x"></i></span>&nbsp;${myDetailInfo.religion}</p>
+									<p>학력:<span><i class="fas fa-graduation-cap fa-1x"></i></span>&nbsp;${myDetailInfo.education}</p>
+									<p>체형:<span><i class="fas fa-dumbbell fa-1x"></i></span>&nbsp;${myDetailInfo.bodyShape}</p>
+									<p>키:<span><i class="fas fa-child fa-1x"></i></span>&nbsp;${myDetailInfo.height}cm</p>
+									<p>MBTI결과:<span><i class="fas fa-child fa-1x"></i></span>&nbsp;${myDetailInfo.funvo.fun_mbti_result}</p>
 									
 									</font>
 								</div>
