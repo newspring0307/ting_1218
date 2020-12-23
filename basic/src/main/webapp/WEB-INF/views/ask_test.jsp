@@ -1,89 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
- <html class="no-js">
-	<head>
-
-		<title>test	</title>
-
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-
-			<link rel="stylesheet" href="resources/css/animate.css">
-			<link rel="stylesheet" href="resources/css/simple-line-icons.css">
-			<link rel="stylesheet" href="resources/css/magnific-popup.css">
-			<link rel="stylesheet" href="resources/css/bootstrap.css">
-			<link rel="stylesheet" href="resources/css/style.css">
-			<link rel="stylesheet" type="text/css" href="resources/css/semantic.min.css">
-			<script src="resources/js/modernizr-2.6.2.min.js"></script>
-			<script
-			  src="https://code.jquery.com/jquery-3.1.1.min.js"
-			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-			  crossorigin="anonymous"></script>
-			<script src="resources/js/semantic.min.js"></script>
-	</head>
-
-
-	<body>
-	<!---------------------------------- header start ---------------------------------->
-	<header style="background: linear-gradient(-135deg, #52D3AA, #54FFFF) fixed;">
-			<div class="container">
-			   <div class="navbar-header">
-		         <a class="navbar-brand" href="index.html" style="color:#1C1185">ting</a> 
-		       </div>
-		    </div>
-	</header>
 	
 <!---------------------------------- header end ---------------------------------->
 <br>
 
-<div class = "TingToday_list" style="padding-left: 15%;">
+
+
+	<section id="fh5co-contact" data-section="contact">
+		<div class="container">
+			<div class="row">	
+<div class = "TingToday_list" style="padding-left: 15%;" >
 	<table class="w3-table-all notranslate">
-		<thead>
-			<tr>	
-				<th  style="text-align: center;border-right: 1px solid #eeeeee;">경고</th>													
-			</tr>
-		</thead>									
-		<tbody> 
- 			<tr>				                						
-				<td style="border: 2px solid #036;width: 420px;height:auto;;" >《허위신고시 처벌 사항》〇 경범죄처벌법 제3조3항2호(거짓신고)에 따라, 발생하지 않은 범죄나 재해 사실을 공무원에게 거짓으로 신고한 사람은 60만원 이하의 벌금, 구류 또는 과료의 형으로 처벌되며, 사안에 따라 즉결심판에 회부될 수 있습니다. </td>						
-			</tr>										                 			                				               				                
-		</tbody>    					          		                				             
+				<form action="ask_result"  method="post" id="myForm">
+				<%-- 이자리는 로그인 한 후 회원의 아이값을 기준으로 문의 게시판을 작성
+					value=22 값은 변수로 변경 가능 
+					이름, 이메을 , 헨드폰도 모두 자동으로 불러 올영역 
+				 --%>	
+				<input type="hidden" name="boardTypeIdx" value="1">			
+				<div class="col-md-6 to-animate">
+					<h3>신고 센터</h3>
+					<div class="form-group ">
+						<input type="hidden" name="tingIdx"value="<%=request.getParameter("tingIdx")%>">
+						<label for="title" class="sr-only">신고 제목</label> 
+						<input id="title" class="form-control" placeholder="제목" type="text" name="title">
+					</div>
+					<div class="form-group ">
+						<label for="content" class="sr-only">신고 내용</label>
+						<textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="내용"></textarea>
+					</div>
+					<div class="form-group ">
+						<input class="btn btn-primary btn-lg" value="신고하기" type="submit">
+					</div>
+				</div>
+				</form>		          		                				             
 	</table>
-</div><br><br>
-
-
-			<div style="padding-left: 40%;">
-	            <input class="btn btn-primary btn-lg" type="button" value="신고하기"> 
-	        </div>
+				</div>
+				</div>
+</div>
+</section><br><br>
 <br><br>
+<!-- <script>
+var option = {
+		dataType : 'json', 
+    url: "ask_result",
+    success: function(res){
+        alert("신고가 접수되었습니다."); //res Object안에 msg에는 결과 메시지가 담겨있습니다.
+    },
+    error: function(res){
+        alert("에러가 발생했습니다.")
+    }
+}
 
-
-
-	<!---------------------------------script----------------------------------------------->
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/jquery.easing.1.3.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.waypoints.min.js"></script>
-	<script src="resources/js/jquery.stellar.min.js"></script>
-	<script src="resources/js/jquery.countTo.js"></script>
-	<script src="resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="resources/js/magnific-popup-options.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="resources/js/google_map.js"></script>
-	<script src="resources/js/main.js"></script>
-	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-	
-	
-
-	  
-	  
-
-
-	</body>
-</html>
-
+$('#myForm').submit(function() { //submit이 발생하면
+    $(this).ajaxSubmit(option); //옵션값대로 ajax비동기 동작을 시키고
+    return false; //기본 동작인 submit의 동작을 막아 페이지 reload를 막는다.
+});
+</script>  -->

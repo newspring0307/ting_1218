@@ -7,17 +7,20 @@ import com.ting.domain.LikeReceiveVO;
 public interface LikeReceiveService {
 	void insertLikeReceive(LikeReceiveVO vo);
 
-	// 글 수정
+	// 湲� �닔�젙
 	void updateLikeReceive();
 
-	// 글 삭제
+	// 湲� �궘�젣
 	void deleteLikeReceive(LikeReceiveVO vo);
 
-	// 글 상세 조회
+	// 湲� �긽�꽭 議고쉶
 	LikeReceiveVO getLikeReceive(LikeReceiveVO vo);
 
-	// 글 목록 조회
+	// 湲� 紐⑸줉 議고쉶
 	List<LikeReceiveVO> getLikeReceiveList(LikeReceiveVO vo);
+	
+
+	List<LikeReceiveVO> getLikeSendList(LikeReceiveVO vo);
 	
 
 }

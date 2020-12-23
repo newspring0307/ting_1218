@@ -36,5 +36,8 @@ public class LikeReceiveServiceImpl implements LikeReceiveService{
 	public List<LikeReceiveVO> getLikeReceiveList(LikeReceiveVO vo) {
 		return likeReceiveDAO.getLikeReceiveList(vo);
 	}
+	public List<LikeReceiveVO> getLikeSendList(LikeReceiveVO vo) {
+		return likeReceiveDAO.getLikeSendList(vo);
+	}
 	
 }

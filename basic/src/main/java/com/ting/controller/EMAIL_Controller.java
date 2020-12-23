@@ -38,7 +38,7 @@ public class EMAIL_Controller {
 
 		if (ObjectUtils.isEmpty(eMAIL_Service.email_check(vo))) {
 			PrintWriter out = response.getWriter();
-			out.print("í•´ë‹¹ ê³„ì •ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			out.print("ÇØ´ç °èÁ¤Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
 			out.close();
 			return null;
 		} else {
@@ -54,8 +54,8 @@ public class EMAIL_Controller {
 				
 				messageHelper.setFrom("jennymaster2020@gmail.com");
 				messageHelper.setTo(vo.getEmail());
-				messageHelper.setSubject( "ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì¸ì¦ ì´ë©”ì¼ ì…ë‹ˆë‹¤."); 
-				messageHelper.setText("\n - ting ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° - \n\n" + "ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì¸ì¦ë²ˆí˜¸ëŠ” [ " + cnum + " ] ì…ë‹ˆë‹¤. "); 
+				messageHelper.setSubject( "ºñ¹Ğ¹øÈ£ Ã£±â ÀÎÁõ ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù."); 
+				messageHelper.setText("\n - ting ºñ¹Ğ¹øÈ£ Ã£±â - \n\n" + "ºñ¹Ğ¹øÈ£ Ã£±â ÀÎÁõ¹øÈ£´Â [ " + cnum + " ] ÀÔ´Ï´Ù. "); 
 
 				mailSender.send(message);
 
@@ -64,13 +64,13 @@ public class EMAIL_Controller {
 			}
 
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("Main_login_1_PW_certifi"); 
+			mv.setViewName("/Main_login_1_PW_certifi"); 
 			mv.addObject("certifi_num", cnum);
 			mv.addObject("email", vo.getEmail());
 
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('ì¸ì¦ë²ˆí˜¸ë¥¼ í•´ë‹¹ ì´ë©”ì¼ë¡œ ë°œì†¡í•˜ì˜€ìŠµë‹ˆë‹¤. ì¸ì¦ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.');</script>");
+			out.println("<script>alert('ÀÎÁõ¹øÈ£¸¦ ÇØ´ç ÀÌ¸ŞÀÏ·Î ¹ß¼ÛÇÏ¿´½À´Ï´Ù. ÀÎÁõ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');</script>");
 			out.flush();
 
 			return mv;
@@ -88,11 +88,11 @@ public class EMAIL_Controller {
 	
 		if (request.getParameter("input_certifi_num").equals(request.getParameter("certifi_num"))) {
 			
-			mv.setViewName("Main_login_1_PW_reset");
+			mv.setViewName("/Main_login_1_PW_reset");
 			mv.addObject("email", vo.getEmail());
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('ì •ìƒì ìœ¼ë¡œ ì¸ì¦ë˜ì—ˆìŠµë‹ˆë‹¤. ë¹„ë°€ë²ˆí˜¸ë¥¼ ì¬ì„¤ì • í•´ì£¼ì„¸ìš”.');</script>");
+			out.println("<script>alert('Á¤»óÀûÀ¸·Î ÀÎÁõµÇ¾ú½À´Ï´Ù. ºñ¹Ğ¹øÈ£¸¦ Àç¼³Á¤ ÇØÁÖ¼¼¿ä.');</script>");
 			out.flush();
 
 			return mv;
@@ -101,12 +101,12 @@ public class EMAIL_Controller {
 		
 		else  {
 			
-			mv.setViewName("Main_login_1_PW_certifi");
+			mv.setViewName("/Main_login_1_PW_certifi");
 			mv.addObject("email", vo.getEmail());
 			mv.addObject("certifi_num", request.getParameter("certifi_num"));
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('ì¸ì¦ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ì•ŠìŠµë‹ˆë‹¤. ì¸ì¦ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.'); </script>");
+			out.println("<script>alert('ÀÎÁõ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö¾Ê½À´Ï´Ù. ÀÎÁõ¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.'); </script>");
 			out.flush();
 			return mv;
 			
@@ -121,7 +121,7 @@ public class EMAIL_Controller {
 
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('ë¹„ë°€ë²ˆí˜¸ê°€ ì •ìƒì ìœ¼ë¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.'); </script>");
+		out.println("<script>alert('ºñ¹Ğ¹øÈ£°¡ Á¤»óÀûÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.'); </script>");
 		out.flush();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Main_login_0");
@@ -130,5 +130,3 @@ public class EMAIL_Controller {
 	}
 
 }
-
-

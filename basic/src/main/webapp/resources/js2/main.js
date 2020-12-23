@@ -118,7 +118,7 @@ const goResult = () => {
   const pTitle = document.querySelector('.p');
   const res_point = document.querySelector('.point');
   const pin = document.querySelector('.pin');
-  const img_url = '/resources/img2/image-' + grade + '.png';
+  const img_url = 'resources/img2/image-' + grade + '.png';
   const res_img = document.createElement('img');
   const res_img_div = document.querySelector('.art');
   const animal = document.querySelector('.result');

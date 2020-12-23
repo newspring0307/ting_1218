@@ -10,25 +10,7 @@
 		<div class="twoColumn">
 			<section class="mainCol">
 			
-				<!-- 나의 프리미엄 -->
-				<div class="infoCenter"> 
-					<h1>나의 프리미엄</h1>
-					<ul class="notifications count-3">
-						<li class="primary"><a class="notification"
-							href="#"><i class="icon-chat"> </i><span
-								class="inner"><span class="count">1</span><span
-									class="msg">새로운 메시지</span></span><span class="btn btnS">읽기</span></a></li>
-						<li class="primary"><a class="notification"
-							href="#"><i class="icon-eye"> </i><span
-								class="inner"><span class="count">1</span><span
-									class="msg">새로운 방문자</span></span><span class="btn btnS">보기</span></a></li>
-						<li class="primary"><a class="notification"
-							href="#"><i class="icon-heart"> </i><span
-								class="inner"><span class="count">0</span><span
-									class="msg">새로운 라이크</span></span><span class="btn btnS">보기</span></a></li>
-					</ul>
-				</div>
-				<!-- 나의 프리미엄 -->
+				
 				
 				
 				<!-- 나의프로필 -->
@@ -284,38 +266,3 @@
 	<!-- 내정보 -->
 
 	<!---------------------------------- Footer start ---------------------------------->
-
-   <div class="ui inverted vertical footer segment" style="background: linear-gradient(-135deg, #52D3AA, #54FFFF) fixed;">
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">company</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">ting Team</a>
-            <a href="#" class="item">ting이란?</a>
-            <a href="#" class="item">premium</a>
-            <a href="#" class="item">문의하기</a>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Services</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">ting Today</a>
-            <a href="#" class="item">MBTI</a>
-            <a href="#" class="item">연애테스트</a>
-            <a href="#" class="item">이상형테스트</a>
-          </div>
-        </div>
-
-        <div class="seven wide column">
-          <h4 class="ui inverted header">ting Info</h4>
-          <ul class="fh5co-contact-info">
-						<li class="fh5co-contact-address " >
-						<i class="icon-home" ></i>&nbsp;부천시 소사구 심곡본동</li>
-						<li><i class="icon-phone"></i>&nbsp;(123) 456-789</li>
-						<li><i class="icon-envelope"></i>&nbsp;ting_manager@gmail.com</li>
-			</ul>
-        </div>
-      </div>
-    </div>
-  </div>

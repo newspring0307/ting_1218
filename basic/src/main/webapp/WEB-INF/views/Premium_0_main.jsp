@@ -12,7 +12,7 @@
 					<h2 class="to-animate">Premium</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h1>기본 프리미엄 혜택 : ting card <span style="color:blue;">DOUBLE!</span></h1>
+							<h1>하트로 운명의 상대를 찾아보세요!</h1>
 						</div>
 					</div>
 				</div>
@@ -25,13 +25,12 @@
 				<form class="pay" method="post">			
 						<div class="col-md-4">
 							<div class="fh5co-person text-center to-animate">
-								<figure><img src="resources/images/week.png" alt="Image"></figure>
 								<input type="hidden" value="${sessionScope.clientIdx}" name="clientIdx">
 								<input type="hidden" value="${goods.goodIdx}" name="goodIdx">								
 								<input type="hidden" value="resources/images/img_7.jpg" name="poto">
 								
 								<input type="hidden" name="heartcnt" value="♥${ goods.heartcnt}개">								
-								<img src="resources/images/img_7.jpg" width="100px;" height="100px;">
+								<img src="resources/images/buyheart.jpg" width="100px;" height="100px;">
 								<hr>
 								<p>하루 ting ${goods.goodName }</p>
 								<p><h3>♥${ goods.heartcnt}개</h3></p>

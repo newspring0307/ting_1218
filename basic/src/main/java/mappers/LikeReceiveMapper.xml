@@ -3,17 +3,27 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="LikeReceiveDAO">
 
+	<!-- 좋아요 보내기 -->
 	<insert id="insertLikeReceive" parameterType="likeReceive">
 		INSERT INTO likeReceive(likeIdx, clientIdx, sendIdx,successOrNot,receiveTime)
 		VALUES(likeIdx_seq.nextval,#{clientIdx},#{sendIdx},0,SYSDATE)
 	</insert>
 	
+	<!-- 받은 좋아요 리스트 -->
 	<select id="getLikeReceiveList" parameterType="likeReceive" resultType="clientDetailInfo">
 	SELECT * FROM clientDetailInfo A WHERE A.clientIdx IN 
 	(SELECT B.clientIdx FROM likeReceive B 
-	WHERE B.sendIdx=#{clientIdx}and B.successornot=0)
+	WHERE B.sendIdx=#{clientIdx})
+	</select>	
+	
+	<!-- 보낸 좋아요 리스트 -->
+	<select id="getLikeSendList" parameterType="likeReceive" resultType="clientDetailInfo">
+	SELECT * FROM clientDetailInfo A WHERE A.clientIdx IN 
+	(SELECT B.sendIdx FROM likeReceive B 
+	WHERE B.clientIdx=#{clientIdx})
 	</select>
 	
+	<!-- 매칭 성사되었으면 successOrNot업데이트 -->
 	<update id="updateLikeReceive" parameterType="likeReceive">
 		UPDATE likeReceive a set successOrNot = (
 		select count(*) from coupleDecision b 

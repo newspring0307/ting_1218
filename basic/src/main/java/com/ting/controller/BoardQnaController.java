@@ -1,5 +1,6 @@
 package com.ting.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,13 @@ public class BoardQnaController {
 		System.out.println("qna_add실행");
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		boardQnaService.boardQnaAdd(vo);
-		return "test";
+		return "redirect:/index.jsp";
+	}
+	@RequestMapping("/ask_result")
+	public String report_result(BoardQnaVO vo,HttpSession session) {
+		System.out.println("ask_result실행");
+		vo.setClientIdx((int)session.getAttribute("clientIdx"));
+		boardQnaService.boardQnaAdd(vo);
+		return "/ask_result.jsp";
 	}
 }

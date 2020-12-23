@@ -46,6 +46,7 @@
 							<li><button class="ui inverted teal button" id="register">회원가입</button></li>
 						</c:if>
 						<c:if test="${sessionScope.UID ne null}">
+						<li><a href="Client_0_main" data-nav-section="mypage"><span>마이페이지</span></a></li>
 							<li><button class="ui inverted teal button" id="logout">로그아웃</button></li>
 						</c:if>
 					</ul>
@@ -63,8 +64,7 @@
 						<div class="col-md-8 col-md-offset-2" >
 							<h1 class="to-animate"  >매일 이상형이 찾아오다</h1>
 							<h2 class="to-animate">ting</h2><br>
-							<a href="Client_2_Ting_main" class="btn btn-primary"><h2 style="color:gray">팅하러가기</h2></a>
-							<a href="Client_5_like_Received" class="btn btn-primary"><h2 style="color:gray">마이페이지</h2></a>
+							<a href="Client_2_Ting_main" class="btn btn-primary"><h2 style="color:gray">오늘의 추천 보기</h2></a>
 						</div>
 					</div>
 				</div>
@@ -458,6 +458,7 @@
 					value=22 값은 변수로 변경 가능 
 					이름, 이메을 , 헨드폰도 모두 자동으로 불러 올영역 
 				 --%>
+				<input type="hidden" name="tingIdx" value="0">	
 				<input type="hidden" name="boardTypeIdx" value="0">					
 				<div class="col-md-6 to-animate">
 					<h3>문의2</h3>
@@ -470,7 +471,7 @@
 						<textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="내용"></textarea>
 					</div>
 					<div class="form-group ">
-						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit">
+						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit" onclick="alert('문의가 정상적으로 접수되었습니다.\n3~5일 이내에 회원님의 이메일로\n답변이 전송될 예정입니다.');">
 					</div>
 				</div>
 				</form>

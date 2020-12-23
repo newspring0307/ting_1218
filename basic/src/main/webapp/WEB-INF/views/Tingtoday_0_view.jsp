@@ -15,6 +15,8 @@
 		width: 45px;
 		}
 	</style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
 
 
 <!---------------------------------- header end ---------------------------------->
@@ -59,7 +61,10 @@
 								</div>
 								<div class="article_info" style="padding-top: 10px">
 									<span class="date">2020.12.13 10:00</span>
-								</div>
+								</div>								
+								<span style="font-size: 20px;">
+ 								 <a href="#" onclick="askPopup();"><i class="fas fa-bullhorn"></i></a>
+								</span>	
 							</div>
 						</div>
 					</div>
@@ -117,6 +122,12 @@ function resize(obj) {
   obj.style.height = (12+obj.scrollHeight)+"px";
 }
 </script>
+<script language="javascript">
+	function askPopup() { 
+	window.open("ask_test?tingIdx=${board.boardIdx}", "a", "width=600, height=600, left=650, top=300"); }
+	
+	
+	</script> 
 <!-- 댓글 end -->
 <!--여기에 내용 넣으세요-->
 

@@ -53,13 +53,13 @@
 				</thead>
 				<tbody> 
  					<tr>				                
-						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">구매인</h5></td>
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h3 align="center">구매인</h3></td>
 						<td style="border: 2px solid #52D3AA;width: 400px;padding:10px;" >
 						<h2 align="center"><p><%=clientIdx %>&nbsp;</p></h2>																																						                  
 						</td>						
 					</tr>			
 					<tr>				                
-						<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">상품명</h5></td>
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h3 align="center">상품명</h3></td>
 						<td style="border: 2px solid #52D3AA;width: 400px;padding:10px;">
 						<input type="hidden" name="clientIdx" value="<%=clientIdx %>"><!-- 여기에 세션값이 들어가야함 -->
 						<input type="hidden" name="goodIdx" value="<%=goodIdx %>">	
@@ -67,19 +67,22 @@
 						</td>						
 					</tr>									                			
 				<tr>
-				<td style="border: 2px solid #52D3AA;height: 100px;" ><h5 align="center">선택한 상품</h5></td>
+				<td style="border: 2px solid #52D3AA;height: 100px;" ><h3 align="center">선택한 상품</h3></td>
 				<td style="border: 2px solid #52D3AA;">
 							<div class="ui form" style="padding-left: 25%;padding-top:20%;">				     
 							 <div class="inline fields" align="center">  								
 									<div class="ui radio checkbox" align="center">
-										<img src="<%=poto %>" width="100px;" height="100px;"><hr>									
-										<h4><%=heartcnt %></h4><br>
-										<input name="totalPrice" value="<%=Price %>" style="text-align:center">
+										<img src="resources/images/buyheart.jpg" width="100px;" height="100px;">								
+										<h4 align="center"><%=heartcnt %></h4><br>	
 									</div>
 								</div>																			
 							</div>
 						</td>
-					</tr>	                					                 			                				               				                
+					</tr>
+					<tr>				                
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h3 align="center">상품 가격</h3></td>	
+						<td style="border: 2px solid #52D3AA;height: 100px;" ><h2 align="center"><%=Price %>원</h2></td>	 
+					</tr>               					                 			                				               				                
 				</tbody>    					          		                				             
 			</table>	
 			<hr>

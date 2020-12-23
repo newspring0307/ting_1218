@@ -14,7 +14,7 @@ public interface PaymentService {
 	
 	 List<PaymentVO> getPaymentList(PaymentVO vo);
 	
-	 void updatetotalHeart(ClientDetailInfoVO vo);
+	 void updatetotalHeart(PaymentVO vo);
 	 
 
 }

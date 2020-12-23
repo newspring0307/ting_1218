@@ -96,7 +96,10 @@
         <p>
           사람은 서로 조금씩 달라서 16가지 이미지에 꼭 맞기는 어렵습니다.
           결과가 조금 맞지 않더라도 이런 면이 있음을 알고 자신의 매력을 어필해보세요.
-          좋은 인연은 어느새 당신의 옆에 있을 겁니다!<br><br>
+          좋은 인연은 어느새 당신의 옆에 있을 겁니다!
+         
+     <button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646"  onclick="location.href='index'">홈으로</button>
+     <br><br>
         </p>
       </div>
       <hr>

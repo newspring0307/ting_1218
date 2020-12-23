@@ -35,19 +35,20 @@
 	<script src="resources/js/form.js"></script>
 	<script src="resources/js/transition.js"></script>
 	<!---------------------------------function----------------------------------------------->
-<script>
-$(document).ready(function(){ 
+	  <script type="text/javascript">
+	  $(document).ready(function(){ 
+		  $("#submit_func").click(function(){
+			  if ($('.agree_compul_1:checked').length == $('.agree_compul_1').length) {
+		        	alert("모든 필수 항목에 동의하셨습니다.");
+					location.href='Main_register_2_membership';
+			  }else{
+		        	alert("모든 필수 항목을 체크해주세요.");
+			  }
+			  });
+	  });
 
-	$('#submit_func').click(function(){
-		location.href='Main_register_2_membership';
-		
-	});
-	//submit 함수는 따로 추가
-
-
-});//ready end
-</script>
-
+ </script>
+	
 	</head>
 
 	<body class="text-center">
@@ -64,11 +65,11 @@ $(document).ready(function(){
       <div class="ui stacked segment">
 	  <button class="compact ui button" style = "float:right;margin:0;">메인으로</button><br><br><br>
         <div class="field">
-            <input type="radio" name="agree_compul_1" >&nbsp;<span style="color:blue;">동의합니다. </span><span style="color:red;">(필수)</span>
+            <input type="checkbox" class="agree_compul_1" id="agree_compul_1">&nbsp;<span style="color:blue;">동의합니다. </span><span style="color:red;">(필수)</span>
 			<br><div  style="overflow:scroll;background-color:white;width:100%; height:30%;padding:10px;">본 회원약관은 팅(이하'갑'이라 한다)이 운영하는 인터넷 관련 서비스(이하'서비스'라 한다)를 이용함에 있어 관리자와 이용자(이하'회원'이라 한다)의 권리,의무 및 책임사항을 규정함으로 목적으로한다.</div>
         </div>
 		 <div class="field">
-            <input type="radio" name="agree_compul_2" >&nbsp;<span style="color:blue;">동의합니다. </span><span style="color:red;">(필수)</span>
+            <input type="checkbox" class="agree_compul_1" id="agree_compul_1">&nbsp;<span style="color:blue;">동의합니다. </span><span style="color:red;">(필수)</span>
 			<br><div  style="overflow:scroll;background-color:white;width:100%; height:30%;padding:10px;">'갑'은 타인의 명의나 주민등록번호를 도용하여 회원가입신청을 할 경우 회원가입신청을 거절할 수 있다. 또한 회원가입신청이 승인이 된 후에도 허위사실의 기재가 발각되거나 '갑'의 명예를 훼손시키거나 음란물이나 불건전한 내용을 게재할 경우 회원의 자격을 강제 탈되 시킬 수 있다.</div>
         </div>   
 	   <div class="field">
@@ -82,7 +83,7 @@ $(document).ready(function(){
 	   </div><br>
 		
 	   <div class="field">
-		    <div class="ui fluid large teal submit button" id="submit_func" a href="Main_register_2_membership">다음 >></div>
+		    <div class="ui fluid large teal submit button" id="submit_func" >다음 >></div>
 	   </div>
 		<!--===============submit은 함수사용=================-->
 

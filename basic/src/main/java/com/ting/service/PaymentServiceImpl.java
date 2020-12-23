@@ -24,12 +24,12 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 	
 	public List<PaymentVO> getPaymentList(PaymentVO vo) {
-		System.out.println("===> service getPaymentList() 호출");
+		System.out.println("===> service getPaymentList() �샇異�");
 		return PaymentDAO.getPaymentList(vo);
 		
 	}
 	
-	public void updatetotalHeart(ClientDetailInfoVO vo) {
+	public void updatetotalHeart(PaymentVO vo) {
 		
 		PaymentDAO.updatetotalHeart(vo);
 	}

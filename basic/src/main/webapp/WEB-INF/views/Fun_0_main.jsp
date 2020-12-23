@@ -48,24 +48,10 @@
 			</section>
 			<section id="fh5co-intro">
 				<div class="container">
-					<div class="col-md-12 section-heading text-center">
+					<div class="col-md-offset-3 section-heading text-center">
 						<div class="row row-bottom-padded-lg">
 							<div class="fh5co-block to-animate"
-								style="background-image: url(resources/images/img_7.jpg); top:80px;">
-								<div class="overlay-darker"></div>
-								<div class="overlay"></div>
-								<div class="fh5co-text">
-									<h2>연애심리 Test</h2>
-									<br />
-									<p>나도 몰랐던 나의 연애심리</p>
-									<br />
-									<p>
-										<a href="FUN_2_test1" class="btn btn-primary">Click</a>
-									</p>
-								</div>
-							</div>
-							<div class="fh5co-block to-animate"
-								style="background-image: url(img/img_2.jpg); top:-40px;">
+								style="background-image: url(img/img_2.jpg); top:80px;">
 								<div class="overlay-darker"></div>
 								<div class="overlay"></div>
 								<div class="fh5co-text"> 

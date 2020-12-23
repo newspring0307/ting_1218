@@ -11,7 +11,14 @@ public class BoardQnaVO {
 	private String content;
 	private Date regDate;
 	private int boardTypeIdx;
+	private int tingIdx;
 	
+	public int getTingIdx() {
+		return tingIdx;
+	}
+	public void setTingIdx(int tingIdx) {
+		this.tingIdx = tingIdx;
+	}
 	public int getBoardIdx() {
 		return boardIdx;
 	}

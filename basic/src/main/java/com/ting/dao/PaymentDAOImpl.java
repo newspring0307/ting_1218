@@ -20,18 +20,18 @@ public class PaymentDAOImpl implements PaymentDAO {
 	
 	
 	public void insertPayment(PaymentVO vo) {
-		System.out.println("===> Mybatis insertPayment() 호출");
+		System.out.println("===> Mybatis insertPayment() �샇異�");
 		mybatis.insert("PaymentDAO.insert_payment", vo);
 
 	}
 
 	public List<PaymentVO> getPaymentList(PaymentVO vo) {
-		System.out.println("===> DAO getPaymentList() 호출");
+		System.out.println("===> DAO getPaymentList() �샇異�");
 		return mybatis.selectList("PaymentDAO.selectPayment", vo);
 	}
 	
-	public void updatetotalHeart(ClientDetailInfoVO vo) {
-		System.out.println("===> Mybatis updatePayment() 호출");
+	public void updatetotalHeart(PaymentVO vo) {
+		System.out.println("===> Mybatis updatePayment() �샇異�");
 		mybatis.update("PaymentDAO.update_heart", vo);
 		
 	}

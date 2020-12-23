@@ -12,7 +12,7 @@ public interface PaymentDAO {
 	
 	public List<PaymentVO> getPaymentList(PaymentVO vo);
 	
-	public void updatetotalHeart(ClientDetailInfoVO vo);
+	public void updatetotalHeart(PaymentVO vo);
 	
 
 }

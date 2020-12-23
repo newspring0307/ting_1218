@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<section id="fh5co-intro" data-section="love">
 		<div class="container">
 			<div class=" section-heading text-center">
 				<div align="center"
@@ -20,15 +19,15 @@
 								style="padding-top: 30px; float: right; width: 50%; height: %; text-align: center;">
 								<p>
 									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
-										style="padding: 15px 30px; font-size: 16px;">받은 좋아요</button>
+										style="padding: 15px 30px; font-size: 16px;" onclick="location.href='Client_5_like_Received'">받은 좋아요</button>
 								</p>
 								<p>
 									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
-										style="padding: 15px 30px; font-size: 16px;">보낸 좋아요</button>
+										style="padding: 15px 30px; font-size: 16px;"  onclick="location.href='Client_5_like_Sent'">보낸 좋아요</button>
 								</p>
 								<p>
 									<button class="btn btn-sm"  style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);color:#464646" id=""
-										style="padding: 15px 30px; font-size: 16px;">상세정보 수정</button>
+										style="padding: 15px 30px; font-size: 16px;"  onclick="location.href='Client_1_info_update'">상세정보 수정</button>
 								</p>
 							</div>
 						</div>
@@ -120,7 +119,6 @@
 					</div>
 				</div>
 			</div>
-	</section>
 	
 <!-- 아이콘 -->
 <script src="https://kit.fontawesome.com/37f7028146.js" crossorigin="anonymous"></script>

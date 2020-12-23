@@ -3,6 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardQnaVO">
 	<insert id="add" parameterType="Qna">
-		INSERT into Board VALUES(Board_seq.nextVal,#{clientIdx},#{title},#{content},sysdate,#{boardTypeIdx})
+		INSERT into Board VALUES(Board_seq.nextVal,#{clientIdx},#{title},#{content},sysdate,#{boardTypeIdx},#{tingIdx})
 	</insert>
 </mapper>

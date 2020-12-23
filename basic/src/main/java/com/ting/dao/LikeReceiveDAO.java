@@ -8,15 +8,18 @@ public interface LikeReceiveDAO {
 	
 	public void insertLikeReceive(LikeReceiveVO vo);
 
-	// 글 수정
+	// 湲� �닔�젙
 	public void updateLikeReceive();
 
-	// 글 삭제
+	// 湲� �궘�젣
 	public void deleteLikeReceive(LikeReceiveVO vo);
 
-	// 글 상세 조회
+	// 湲� �긽�꽭 議고쉶
 	public LikeReceiveVO getLikeReceive(LikeReceiveVO vo);
 
-	// 글 목록 조회
+	// 湲� 紐⑸줉 議고쉶
 	public List<LikeReceiveVO> getLikeReceiveList(LikeReceiveVO vo);
+	
+
+	public List<LikeReceiveVO> getLikeSendList(LikeReceiveVO vo);
 }

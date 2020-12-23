@@ -24,6 +24,9 @@
 		if(menu=="문의"){
 			location.href='Ask_0_main';
 		}
+		if(menu=="마이페이지"){
+			location.href='Client_0_main';
+		}
 	});
 
 	/*---------------------footer link----------------------------*/

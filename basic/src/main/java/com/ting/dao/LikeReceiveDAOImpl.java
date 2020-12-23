@@ -11,32 +11,37 @@ import com.ting.domain.LikeReceiveVO;
 
 @Repository("likeReceiveDAO")
 public class LikeReceiveDAOImpl implements LikeReceiveDAO{
-	@Autowired //자동으로 주입하ㅏㄹ수있게하는 스티커
-	private SqlSessionTemplate mybatis; //스프링이 만든다음에 나한테 주입
+	@Autowired //�옄�룞�쑝濡� 二쇱엯�븯�뀖�꽮�닔�엳寃뚰븯�뒗 �뒪�떚而�
+	private SqlSessionTemplate mybatis; //�뒪�봽留곸씠 留뚮뱺�떎�쓬�뿉 �굹�븳�뀒 二쇱엯
 
 	public void insertLikeReceive(LikeReceiveVO vo) {
-		System.out.println("===> Mybatis insertLikeReceive() 호출");
+		System.out.println("===> Mybatis insertLikeReceive() �샇異�");
 		mybatis.insert("LikeReceiveDAO.insertLikeReceive", vo);
 	}
 
 	public void updateLikeReceive() {
-		System.out.println("===> Mybatis updateLikeReceive() 호출");
+		System.out.println("===> Mybatis updateLikeReceive() �샇異�");
 		mybatis.update("LikeReceiveDAO.updateLikeReceive");
 	}
 
 	public void deleteLikeReceive(LikeReceiveVO vo) {
-		System.out.println("===> Mybatis deleteLikeReceive() 호출");
+		System.out.println("===> Mybatis deleteLikeReceive() �샇異�");
 		mybatis.delete("LikeReceiveDAO.deleteLikeReceive", vo);
 	}
 
 	public LikeReceiveVO getLikeReceive(LikeReceiveVO vo) {
-		System.out.println("===> Mybatis getLikeReceive() 호출");
+		System.out.println("===> Mybatis getLikeReceive() �샇異�");
 		return mybatis.selectOne("LikeReceiveDAO.getLikeReceive", vo);
 	}
 
 	public List<LikeReceiveVO> getLikeReceiveList(LikeReceiveVO vo) {
-		System.out.println("===> Mybatis getLikeReceiveList() 호출");
+		System.out.println("===> Mybatis getLikeReceiveList() �샇異�");
 		return mybatis.selectList("LikeReceiveDAO.getLikeReceiveList", vo);
+	}
+
+	public List<LikeReceiveVO> getLikeSendList(LikeReceiveVO vo) {
+		System.out.println("===> Mybatis getLikeSendList() 실행");
+		return mybatis.selectList("LikeReceiveDAO.getLikeSendList", vo);
 	}
 
 }
