@@ -94,6 +94,8 @@ public class ClientController {
 			return "Main_login_0";
 		} else {
 			vo.setClientIdx((int) session.getAttribute("clientIdx"));
+			ClientDetailInfoVO vo2 = clientDetailInfoService.getClientDetailInfo(vo);
+			vo.setGender(vo2.getGender());
 			List<ClientDetailInfoVO> result = clientDetailInfoService.getClientDetailInfoList(vo);
 			m.addAttribute("clientDetailInfo", result);
 			int heartCnt = clientDetailInfoService.getTotalHeart(vo);

@@ -82,7 +82,7 @@
 	
 	<select id="getClientDetailInfoList" resultType="clientDetailInfo">
 		SELECT *
-		FROM ClientDetailInfo where clientIdx != #{clientIdx}
+		FROM ClientDetailInfo where clientIdx != #{clientIdx} and gender not like #{gender}
 	</select>
 	
 	<!-- 하트 갯수 -->
