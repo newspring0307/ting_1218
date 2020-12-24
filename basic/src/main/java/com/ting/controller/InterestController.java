@@ -27,32 +27,26 @@ public class InterestController {
 	private ClientInterestService clientInterestService;
 	
 	
-	
+	//관심사 목록 출력
 	@RequestMapping(value = "/Client_4_interestInsert")
 	public String getInterestList(InterestVO vo, Model m) {
 			List<InterestVO> result = interestService.getInterestList(vo);
 			m.addAttribute("InterestList", result);
-			System.out.println(result);
 			return "/Client_4_interestInsert";
 		
 	}
 	
-	//고객 상세정보 입력 메소드
+	// 회원 관심사 insert
 	@RequestMapping("/insertClientInterest")
 	public String insertClientInterest(ClientInterestVO vo,HttpSession session
 			,@RequestParam("arr") String[] arr) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("받은 데이터 길이"+arr.length);
 		for(String s : arr) {
-			System.out.println("데이터"+s);
 			vo.setInterestIdx(Integer.parseInt(s));
 			clientInterestService.insertClientInterest(vo);
 		}
 		return "redirect:/Client_4_charmingPointInsert";
 	}
-	
-	
-	
 	
 }

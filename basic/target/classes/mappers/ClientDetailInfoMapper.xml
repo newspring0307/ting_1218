@@ -3,17 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClientDetailInfoDAO">
 
+	<!-- 회원 상세정보 insert -->
 	<insert id="insertClientDetailInfo" parameterType="clientDetailInfo">
-		INSERT INTO clientDetailInfo(clientIdx, name, nickname,gender,
+		INSERT INTO clientDetailInfo (clientIdx, name, nickname,gender,
 		job,age,latitude,longitude,religion,education,height,bodyShape,
-		drink,smoke,selfIntro,lastUpdate)
+		drink,smoke,selfIntro,lastUpdate,totalheart)
 		VALUES(#{clientIdx},
 			#{name},#{nickname},#{gender},#{job},
 			#{age},#{latitude},#{longitude},#{religion}
 			,#{education},#{height}
-			,#{bodyShape},#{drink},#{smoke},#{selfIntro},sysdate)
+			,#{bodyShape},#{drink},#{smoke},#{selfIntro},sysdate,1)
 	</insert>
 	
+	<!-- 회원 사진 upload -->
 	<update id="updatePhotoClientDetailInfo" parameterType="clientDetailInfo">
 		UPDATE clientDetailInfo SET
 		
@@ -46,25 +48,19 @@
 			<result property="Fun_mbti_result" column="Fun_mbti_result" />
 		</association>
 	</resultMap>
+	<!-- 회원 상세정보 가져오기 -->
 	<select id="getClientDetailInfo" parameterType="clientDetailInfo" resultMap="clientDetailInfoAndMBTI">
-		select c.name, c.nickname, c.gender,c.job,c.age,c.photo,c.religion
+		select c.clientIdx, c.name, c.nickname, c.gender,c.job,c.age,c.photo,c.religion
 		,c.education,c.height,c.bodyShape,c.drink,c.smoke,c.selfintro
 		,c.totalHeart,f.Fun_mbti_result
-		from clientDetailInfo c, Fun_mbti f
-		where c.clientIdx = f.clientIdx
-		and c.clientIdx=#{clientIdx}
-		
-	</select>
-	
-	<!-- <select id="getClientDetailInfo" parameterType="clientDetailInfo" resultType="clientDetailInfo">
-		SELECT *
-		FROM clientDetailInfo
-		WHERE clientIdx = #{clientIdx}
-	</select> -->
-	
-	
+		from clientDetailInfo c       
+        left OUTER JOIN fun_mbti  f               
+        ON (c.clientIdx = f.clientIdx)
+		where c.clientIdx=#{clientIdx}
 
-	
+	</select>
+
+	<!-- 회원 상세정보 수정 -->
 	<update id="updateClientDetailInfo" parameterType="clientDetailInfo">
 		UPDATE clientDetailInfo SET
 		nickname = #{nickname},
@@ -80,9 +76,12 @@
 		WHERE clientIdx = #{clientIdx}
 	</update>
 	
-	<select id="getClientDetailInfoList" resultType="clientDetailInfo">
-		SELECT *
-		FROM ClientDetailInfo where clientIdx != #{clientIdx} and gender not like #{gender}
+	<!--회원 추천 리스트 출력 -->
+	<select id="getClientDetailInfoList"  parameterType="clientDetailInfo" resultType="clientDetailInfo">
+		SELECT clientIdx, name, nickname,gender,
+		job,age,latitude,longitude,religion,education,height,bodyShape,
+		drink,smoke,selfIntro,lastUpdate
+		FROM ClientDetailInfo where gender not like #{gender}
 	</select>
 	
 	<!-- 하트 갯수 -->

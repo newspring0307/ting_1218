@@ -5,10 +5,11 @@
   
 <mapper namespace="EMAIL_DAO">
 
+<!-- 비밀번호 찾기 이메일 확인 -->
 <select id="email_check" parameterType="cvo" resultType="cvo">
-	select * from clientInfo where email=#{email}
+	select clientIdx,password,email from clientInfo where email=#{email}
 </select>
-
+<!-- 비밀번호 재설정 -->
 <update id="reset_pwd" parameterType="cvo">
 	update clientInfo set password = #{password} where email=#{email}
 </update>

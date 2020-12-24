@@ -14,7 +14,7 @@
                   <div class="col-md-8 col-md-offset-2 subtext to-animate">
                   <img src="resources/images/flower.jpg" width="500px" height="100%">
                <h3 class="to-animate">그 분을 기다려볼까요..두근두근!</h3>
-               <input class="btn btn-lg" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);" value="마이페이지" type="button"  onclick="location.href = 'Client_5_like_Received'">
+               <input class="btn btn-lg" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);" value="마이페이지" type="button"  onclick="location.href = 'Client_0_main'">
                   </div>
                </div>
             </div>

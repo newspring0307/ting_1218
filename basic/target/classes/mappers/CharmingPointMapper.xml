@@ -5,7 +5,7 @@
 
 
 	<select id="getCharmingPointList" resultType="charmingPoint">
-		SELECT * FROM charmingpoint
+		SELECT charmingPointIdx,charmingPointName FROM charmingPoint
 	</select>
 	
 

@@ -19,13 +19,6 @@
         String Price = request.getParameter("Price");
         String goodIdx = request.getParameter("goodIdx");
         String poto = request.getParameter("poto");
- 
-        System.out.println("heartcnt:"+heartcnt);
-        System.out.println("clientIdx:"+clientIdx);
-        System.out.println("Price:"+Price);
-        System.out.println("goodIdx:"+goodIdx);
-        System.out.println("poto:"+poto);
-        
     %>
 	<!---------------------------------- header start ---------------------------------->
 	
@@ -74,6 +67,7 @@
 									<div class="ui radio checkbox" align="center">
 										<img src="resources/images/buyheart.jpg" width="100px;" height="100px;">								
 										<h4 align="center"><%=heartcnt %></h4><br>	
+										<input  type="hidden" name="totalPrice" value="<%=Price %>" style="text-align:center">
 									</div>
 								</div>																			
 							</div>
@@ -90,32 +84,15 @@
 		<div class="form-control" align="center" style="width: 520px; height : 150px;padding:30px;">위의 입력한 정보가 맞으며 <br>개인정보 이용에 동의합니다.<br>
 			<input type="checkbox" onclick="alert('이용약관에 동의하셨습니다.');">
 		</div><br> <br>
-		<!-- 이용약관동의 -->	
-		
 		<!-- 결제 버튼 -->	         						       
 		<div style="padding-left: 25%;">
 			<input class="btn btn-primary btn-lg" type="submit" value="결제 하기" />
 			<input class="btn btn-primary btn-lg" type="button" value="결제 취소" onclick="moveCloseOff();" />				      				            
 		</div>	
-		<!-- 결제 버튼 -->	
 		</form>		      
 	</div>
-
-
- 
-        
-	      
-	      
-	      
-	            
 <br><br>
 
-
-
-	<!---------------------------------script----------------------------------------------->
-	
-	
-	
 	<script language="javascript">
 	function moveCloseOff() {		
 	  opener.location.href="Premium_0_main";		  

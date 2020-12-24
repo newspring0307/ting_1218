@@ -4,7 +4,6 @@
 <!DOCTYPE html>
  <html class="no-js">
 	<head>
-
 		<title>ting</title>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
@@ -21,9 +20,8 @@
 			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 			  crossorigin="anonymous"></script>
 			<script src="resources/js/semantic.min.js"></script>
-			<!-- 커밋 테스트 -->
-			<!-- 커밋 테스트 -->
 	</head>
+	
 	<body>
 	<header role="banner" id="fh5co-header" >
 			<div class="container">
@@ -40,12 +38,13 @@
 						<li><a href="Tingtoday_0_main" data-nav-section="tingtoday"><span>팅투하자!</span></a></li>
 						<li><a href="Premium_0_main" data-nav-section="premium"><span>프리미엄</span></a></li>
 						<li><a href="Fun_0_main" data-nav-section="fun"><span>FUN</span></a></li>
-						<li><a href="Client_2_Ting_main" data-nav-section="contact"><span>문의</span></a></li>
+						<li><a href="Client_6_question" data-nav-section="contact"><span>문의</span></a></li>
 						<c:if test="${sessionScope.UID eq null}">
 							<li><button class="ui inverted teal button" id="login">로그인</button></li>
 							<li><button class="ui inverted teal button" id="register">회원가입</button></li>
 						</c:if>
 						<c:if test="${sessionScope.UID ne null}">
+						<li><a href="Client_0_main" data-nav-section="mypage"><span>마이페이지</span></a></li>
 							<li><button class="ui inverted teal button" id="logout">로그아웃</button></li>
 						</c:if>
 					</ul>
@@ -63,8 +62,7 @@
 						<div class="col-md-8 col-md-offset-2" >
 							<h1 class="to-animate"  >매일 이상형이 찾아오다</h1>
 							<h2 class="to-animate">ting</h2><br>
-							<a href="Client_2_Ting_main" class="btn btn-primary"><h2 style="color:gray">팅하러가기</h2></a>
-							<a href="Client_5_like_Received" class="btn btn-primary"><h2 style="color:gray">마이페이지</h2></a>
+							<a href="Client_2_Ting_main" class="btn btn-primary"><h2 style="color:gray">오늘의 추천 보기</h2></a>
 						</div>
 					</div>
 				</div>
@@ -314,7 +312,6 @@
 
 
 	
-	<!-- <section id="fh5co-about" data-section="premium"> -->
 	<section id="fh5co-work" data-section="premium">
 		<div class="container">
 			<div class="row">
@@ -322,7 +319,7 @@
 					<h2 class="to-animate">Premium</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h1>기본 프리미엄 혜택 : ting card <span style="color:blue;">DOUBLE!</span></h1>
+							<h1>하트로 운명의 상대를 찾아보세요!</h1>
 							<p><h3><a href="Premium_0_main ">구매하러가기</a></h3></p>
 						</div>
 					</div>
@@ -331,34 +328,31 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/week.png" alt="Image"></figure>
-						<h2>7 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="7,000 원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡3개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="5,900 원" type="button" id="go_premium">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/month.png" alt="Image"></figure>
-						<h2>30 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 플러스플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="할인가 2,5000 원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡10개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="17,000 원" type="button" id="go_premium">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/year.png" alt="Image"></figure>
-						<h2>365 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 왕플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="이벤트특가! 99,000원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡30개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="이벤트특가! 45,000원" type="button" id="go_premium">
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+		</section>
 
 		<section id="fh5co-services" data-section="fun">
 		<div class="container">
@@ -451,30 +445,30 @@
 						<li><i class="icon-globe"></i> <a href="#">ting.co</a></li>
 					</ul>
 				</div>
-				<div class="col-md-6 to-animate" >
-					<h3 >문의</h3>
-					<div class="form-group " >
-						<label for="name" class="sr-only">Name</label>
-						<input id="name" class="form-control" placeholder="이름" type="text" >
+				
+				
+				<form action="qna_add"  method="post">
+				<%-- 이자리는 로그인 한 후 회원의 아이값을 기준으로 문의 게시판을 작성
+					value=22 값은 변수로 변경 가능 
+					이름, 이메을 , 헨드폰도 모두 자동으로 불러 올영역 
+				 --%>
+				<input type="hidden" name="tingIdx" value="0">	
+				<input type="hidden" name="boardTypeIdx" value="0">					
+				<div class="col-md-6 to-animate">
+					<h3>문의</h3>
+					<div class="form-group ">
+						<label for="email" class="sr-only">제목</label> 
+						<input id="title" class="form-control" placeholder="제목" type="text" name="title">
 					</div>
 					<div class="form-group ">
-						<label for="email" class="sr-only">Email</label>
-						<input id="email" class="form-control" placeholder="이메일" type="email" >
+						<label for="message" class="sr-only">내용</label>
+						<textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="내용"></textarea>
 					</div>
 					<div class="form-group ">
-						<label for="phone" class="sr-only">Phone</label>
-						<input id="phone" class="form-control" placeholder="핸드폰" type="text" >
+						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit" onclick="alert('문의가 정상적으로 접수되었습니다.\n3~5일 이내에 회원님의 이메일로\n답변이 전송될 예정입니다.');">
 					</div>
-					<div class="form-group ">
-						<label for="message" class="sr-only">Message</label>
-						<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="내용" ></textarea>
-					</div>
-					<div class="form-group ">
-						<input class="btn btn-primary btn-lg" value="문의 보내기" type="submit" id="send_ask" >
-					</div>
-					<div>
 				</div>
-			</div>
+				</form>
 		</div>
 			</section>
 	<footer id="footer" role="contentinfo">

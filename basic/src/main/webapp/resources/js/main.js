@@ -22,7 +22,7 @@
 			location.href='Fun_0_main';
 		}
 		if(menu=="문의"){
-			location.href='Ask_0_main';
+			location.href='Client_6_question';
 		}
 		if(menu=="마이페이지"){
 			location.href='Client_0_main';
@@ -46,7 +46,7 @@
 			location.href='Premium_0_main';
 		}
 		if(menu=="문의하기"){
-			location.href='Ask_0_main';
+			location.href='Client_6_question';
 		}
 		if(menu=="MBTI"||menu=="연애테스트"||menu=="이상형테스트"){
 			location.href='Fun_0_main';

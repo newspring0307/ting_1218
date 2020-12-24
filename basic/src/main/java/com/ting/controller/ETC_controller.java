@@ -26,7 +26,6 @@ public class ETC_controller {
 	public String tiles7() {
 		return "/index.jsp";
 	}
-	
 	@RequestMapping("/FUN_1_mbti_1_my")
 	public String tiles8() {
 		return "/FUN_1_mbti_1_my.jsp";

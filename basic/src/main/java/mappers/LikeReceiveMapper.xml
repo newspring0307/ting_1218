@@ -11,14 +11,14 @@
 	
 	<!-- 받은 좋아요 리스트 -->
 	<select id="getLikeReceiveList" parameterType="likeReceive" resultType="clientDetailInfo">
-	SELECT * FROM clientDetailInfo A WHERE A.clientIdx IN 
+	SELECT clientIdx, name, nickname,gender FROM clientDetailInfo A WHERE A.clientIdx IN 
 	(SELECT B.clientIdx FROM likeReceive B 
 	WHERE B.sendIdx=#{clientIdx})
 	</select>	
 	
 	<!-- 보낸 좋아요 리스트 -->
 	<select id="getLikeSendList" parameterType="likeReceive" resultType="clientDetailInfo">
-	SELECT * FROM clientDetailInfo A WHERE A.clientIdx IN 
+	SELECT clientIdx, name, nickname,gender FROM clientDetailInfo A WHERE A.clientIdx IN 
 	(SELECT B.sendIdx FROM likeReceive B 
 	WHERE B.clientIdx=#{clientIdx})
 	</select>

@@ -29,30 +29,23 @@ public class PaymentController {
 	 private PaymentService paymentService;
 	
 
-	   //getMapping �뿉 �엯�젰�맂 �럹�씠吏�瑜� �떎�뻾�떆 
-	   // �븘�옒�쓽 肄붾뱶瑜� �떎�뻾
+	   //결제 insert + 하트갯수 update
 	   @GetMapping("/Premium_2_payresult")
-	   public ModelAndView paymentResult(PaymentVO vo ) {		   	
-		   	   System.out.println("Premium_2_payresult �떎�뻾");
-		       System.out.println("Test1:"+vo.getClientIdx());
-		       System.out.println("Test2:"+vo.getGoodIdx());
-		       System.out.println("Test3:"+vo.getMethod());
+	   public ModelAndView paymentResult(PaymentVO vo ) {		   
 		      ModelAndView mav = new ModelAndView();
 		      paymentService.insertPayment(vo);
 		      paymentService.updatetotalHeart(vo);
-		      mav.setViewName("Premium_2_payresult");
+		      mav.setViewName("/Premium_2_payresult");
 		      return mav;
 		   }
 	   
+	   //결제내역
 		@RequestMapping("/PaymentList")
 		public String getPaymentList(PaymentVO vo, Model m,HttpSession session) {			
-			System.out.println("�떎�뻾1");
 			vo.setClientIdx((int)session.getAttribute("clientIdx"));
 			List<PaymentVO> result = paymentService.getPaymentList(vo);		
 			m.addAttribute("PaymentList", result);
-			return "PaymentList";
-			
-			
+			return "/PaymentList";
 		} 
 
 		

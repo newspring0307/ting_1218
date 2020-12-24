@@ -16,6 +16,7 @@
 		<typeAlias alias="goods" type="com.ting.domain.GoodsVO" />
 		<typeAlias alias="payment" type="com.ting.domain.PaymentVO" />
 		<typeAlias alias="Qna" type="com.ting.domain.BoardQnaVO"/>
+		<typeAlias alias="rvo" type="com.ting.domain.ReplyVO"/>
 		
 		<typeAlias alias="interest" type="com.ting.domain.InterestVO"/>
 		<typeAlias alias="clientInterest" type="com.ting.domain.ClientInterestVO"/>

@@ -6,25 +6,24 @@
 <mapper namespace="com.ting.dao.ClientInfoDAO" >
 	<!-- 로그인 -->
 	<select id="login" parameterType="clientInfo" resultType="clientInfo">
-		SELECT * 
+		SELECT clientIdx,email,password,phone,regdate
 		FROM clientInfo 
 		WHERE email = #{email} AND password = #{password}
 	</select>
-	<!-- <select id="selectLogin" parameterType="Integer" resultType="com.javassem.domain.ClientInfoVO">
-		SELECT COUNT(*) FROM clientInfo WHERE email = #{email} AND password = #{password}
-	</select> -->
-	<!-- 로그인 -->
+	
+	<!-- 비밀번호 변경시 이메일 확인 -->
 	<select id="selectOneByEmail"  parameterType="clientInfo">
-		SELECT *
+		SELECT clientIdx,email,password,phone,regdate
 		FROM clientInfo
-		WHERE email = #(email)
+		WHERE email = #{email}
 	</select>
+	
+	<!-- 회원가입 -->
 	<insert id="register" parameterType="clientInfo">
 		INSERT INTO clientInfo 
-		VALUES(
-				clientInfo_seq.nextVal,#{email},#{password},#{phone},SYSDATE
-			)
+		VALUES(clientInfo_seq.nextVal,#{email},#{password},#{phone},SYSDATE)
 	</insert>
+	
 	<delete id="deleteClientInfo" parameterType="clientInfo">
 		DELETE FROM clientInfo
 		WHERE email = #{email} AND password = #{password}

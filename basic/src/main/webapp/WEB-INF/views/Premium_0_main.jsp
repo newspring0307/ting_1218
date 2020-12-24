@@ -32,7 +32,7 @@
 								<input type="hidden" name="heartcnt" value="♥${ goods.heartcnt}개">								
 								<img src="resources/images/buyheart.jpg" width="100px;" height="100px;">
 								<hr>
-								<p>하루 ting ${goods.goodName }</p>
+								<p>설렘을 담은, ${goods.goodName }</p>
 								<p><h3>♥${ goods.heartcnt}개</h3></p>
 								<input class="btn btn-primary btn-lg"  type="submit"  name="Price" value="${goods.price }">
 								<!-- 나중에 변수로 넣을 것 -->

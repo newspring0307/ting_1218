@@ -27,32 +27,23 @@ public class CharmingPointController {
 	private ClientCharmingPointService clientCharmingPointService;
 	
 	
-	
+	//회원가입 후 매력포인트 체크리스트 출력 
 	@RequestMapping(value = "/Client_4_charmingPointInsert")
 	public String getInterestList(CharmingPointVO vo, Model m) {
 			List<CharmingPointVO> result = charmingPointService.getCharmingPointList(vo);
 			m.addAttribute("charmingPointList", result);
-			System.out.println(result);
 			return "/Client_4_charmingPointInsert";
-		
 	}
 	
-	//고객 상세정보 입력 메소드
+	//내 매력포인트 체크사항 insert 
 	@RequestMapping("/insertClientCharmingPoint")
 	public String insertClientInterest(ClientCharmingPointVO vo,HttpSession session
 			,@RequestParam("arr") String[] arr) {
-
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("받은 데이터 길이"+arr.length);
 		for(String s : arr) {
-			System.out.println("데이터"+s);
 			vo.setCharmingPointIdx(Integer.parseInt(s));
 			clientCharmingPointService.insertClientCharmingPoint(vo);
 		}
 		return "/Client_4_detailInsert2";
 	}
-	
-	
-	
-	
 }

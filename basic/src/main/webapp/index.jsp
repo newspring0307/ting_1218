@@ -36,11 +36,10 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><a href="index.jsp"
 							data-nav-section="about"><span>팅이란?</span></a></li>
-						<li><a href="Main_company_1_team" data-nav-section="team"><span>team</span></a></li>
 						<li><a href="Tingtoday_0_main" data-nav-section="tingtoday"><span>팅투하자!</span></a></li>
 						<li><a href="Premium_0_main" data-nav-section="premium"><span>프리미엄</span></a></li>
 						<li><a href="Fun_0_main" data-nav-section="fun"><span>FUN</span></a></li>
-						<li><a href="Client_2_Ting_main" data-nav-section="contact"><span>문의</span></a></li>
+						<li><a href="Client_6_question" data-nav-section="contact"><span>문의</span></a></li>
 						<c:if test="${sessionScope.UID eq null}">
 							<li><button class="ui inverted teal button" id="login">로그인</button></li>
 							<li><button class="ui inverted teal button" id="register">회원가입</button></li>
@@ -322,7 +321,7 @@
 					<h2 class="to-animate">Premium</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h1>기본 프리미엄 혜택 : ting card <span style="color:blue;">DOUBLE!</span></h1>
+							<h1>하트로 운명의 상대를 찾아보세요!</h1>
 							<p><h3><a href="Premium_0_main ">구매하러가기</a></h3></p>
 						</div>
 					</div>
@@ -331,29 +330,26 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/week.png" alt="Image"></figure>
-						<h2>7 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="7,000 원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡3개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="5,900 원" type="button" id="go_premium">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/month.png" alt="Image"></figure>
-						<h2>30 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 플러스플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="할인가 2,5000 원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡10개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="17,000 원" type="button" id="go_premium">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="resources/images/year.png" alt="Image"></figure>
-						<h2>365 일</h2>
-						<p>하루 ting Card: 6개</p>
-						<p>+ 왕플러스 혜택</p>
-						<input class="btn btn-primary btn-lg go_premium" value="이벤트특가! 99,000원" type="button" id="go_premium">
+						<figure><img src="resources/images/blueheart.jpg" alt="Image"></figure>
+						<h3>두근대는 설렘을 담은,</h3>
+						<h2>♡30개</h2><br>
+						<input class="btn btn-primary btn-lg go_premium" value="이벤트특가! 45,000원" type="button" id="go_premium">
 					</div>
 				</div>
 			</div>
@@ -379,15 +375,6 @@
 					<!-- <i class="icon to-animate-2 icon-anchor"></i> -->
 					<h3>나의 MBTI</h3>
 					<p>나의 성격유형 입력하고 광명찾자!</p>
-					<button class="ui teal button goFun" id="goFUN">go FUN >></button>
-					<p><br><br></p>
-				</div>
-			</li>
-			<li>
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<!-- <i class="icon to-animate-2 icon-layers2"></i> -->
-					<h3>다른 사람 성격도 궁금하다면! </h3>
-					<p>이젠 성격유형 중요하다구요 ~ 나랑 맞는 사람 찾아보기</p>
 					<button class="ui teal button goFun" id="goFUN">go FUN >></button>
 					<p><br><br></p>
 				</div>
@@ -461,7 +448,7 @@
 				<input type="hidden" name="tingIdx" value="0">	
 				<input type="hidden" name="boardTypeIdx" value="0">					
 				<div class="col-md-6 to-animate">
-					<h3>문의2</h3>
+					<h3>문의하기</h3>
 					<div class="form-group ">
 						<label for="email" class="sr-only">제목</label> 
 						<input id="title" class="form-control" placeholder="제목" type="text" name="title">

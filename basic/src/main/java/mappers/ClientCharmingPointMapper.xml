@@ -4,13 +4,7 @@
 <mapper namespace="ClientCharmingPointDAO">
 
 	<insert id="insertClientCharmingPoint" parameterType="clientcharmingPoint">
-		INSERT INTO clientCharmingPoint
-		VALUES(clientCharmingPoint_seq.nextVal,#{clientIdx},#{charmingPointIdx})
+		INSERT INTO clientCharmingPoint VALUES(clientCharmingPoint_seq.nextVal,#{clientIdx},#{charmingPointIdx})
 	</insert>
-	
-	
-	
-	
-	
 	
 </mapper>

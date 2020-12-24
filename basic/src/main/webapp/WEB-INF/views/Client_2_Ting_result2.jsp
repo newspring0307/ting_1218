@@ -16,7 +16,7 @@
                   <img src="resources/images/lover.jpg" width="450px" height="100%">
                <h3 class="to-animate">두분이 매칭되었어요. 축하드려요!<br/> 서로 더 알아가볼까요? </h3>
                <input class="btn btn-lg" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);" value="채팅하러가기" type="button"  onclick="location.href = 'Client_0_main'">
-               <input class="btn btn-lg" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);" value="받은좋아요목록" type="button"  onclick="location.href = 'Client_5_like_Received'">
+               <input class="btn btn-lg" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);" value="마이페이지" type="button"  onclick="location.href = 'Client_0_main'">
                   </div>
                </div>
             </div>

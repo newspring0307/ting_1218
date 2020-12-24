@@ -33,10 +33,11 @@ public class LikeReceiveController {
 	@Autowired
 	private CoupleDecisionService coupleDecisionService;
 
-	//�궡媛� �긽��諛⑹뿉寃� 泥섏쓬�쑝濡� 醫뗭븘�슂 蹂대궪�븣
+	//상대방에게 좋아요 보내기
 	@RequestMapping("/insertLikeReceive")
 	public String insertLikeReceive(LikeReceiveVO vo,HttpSession session) {
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
+		System.out.println("좋아요보내는사람"+vo.getSendIdx());
 		likeReceiveService.insertLikeReceive(vo);
 		ClientDetailInfoVO c= new ClientDetailInfoVO();
 		c.setClientIdx((int)session.getAttribute("clientIdx"));
@@ -44,7 +45,7 @@ public class LikeReceiveController {
 		return "/Client_2_Ting_result";
 	}
 	   
-	//내가 받은 좋아요
+	//내가 받은 좋아요 리스트 출력
 	@RequestMapping("/Client_5_like_Received")
 	public String getLikeReceiveList(LikeReceiveVO vo, Model m,HttpSession session) {
 		if (session.getAttribute("clientIdx") == null) {
@@ -58,7 +59,7 @@ public class LikeReceiveController {
 		return "/Client_5_like_Received";
 		}
 	}
-	//내가 보낸 좋아요
+	//내가 보낸 좋아요 리스트 출력
 	@RequestMapping("/Client_5_like_Sent")
 	public String getLikeSendList(LikeReceiveVO vo, Model m,HttpSession session) {
 			System.out.println(session.getAttribute("clientIdx"));
@@ -69,7 +70,7 @@ public class LikeReceiveController {
 	}
 
 
-	//�굹�뿉寃� 醫뗭븘�슂蹂대궦 �궗�엺�븳�뀒 醫뗭븘�슂 �떟�옣蹂대깂
+	//나에게 좋아요 보낸 사람에게 맞좋아요 보냄
 	@RequestMapping("/Client_2_Ting_result2")
 	public String matchProcessing(CoupleDecisionVO vo, Model m,HttpSession session) {
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));

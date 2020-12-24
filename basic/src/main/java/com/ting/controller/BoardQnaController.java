@@ -16,16 +16,17 @@ public class BoardQnaController {
 	@Autowired
 	private BoardQnaService boardQnaService;
 	
+	//Î¨∏Ïùò insert
 	@RequestMapping("/qna_add")
 	public String board_qna_add(BoardQnaVO vo,HttpSession session) {
-		System.out.println("qna_addΩ««‡");
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		boardQnaService.boardQnaAdd(vo);
-		return "redirect:/index.jsp";
+		return "redirect:/Client_6_question";
 	}
+	
+	//Ïã†Í≥† insert
 	@RequestMapping("/ask_result")
 	public String report_result(BoardQnaVO vo,HttpSession session) {
-		System.out.println("ask_resultΩ««‡");
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		boardQnaService.boardQnaAdd(vo);
 		return "/ask_result.jsp";

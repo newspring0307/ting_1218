@@ -25,11 +25,9 @@ public class FUN_Controller {
 	private Fun_Mbtitest_0_Service fun_Mbtitest_0_Service;
 	
 
-	
 	@GetMapping("/mbti_test")
 	public void mbti_test(@RequestParam("rsval") List<String> rsval,@RequestParam("mbti") String mbti, 
 										Fun_Mbtitest_0_VO vo, Fun_my_character_VO myvo, HttpSession session) {
-		
 		
 		 int romantist=0;
 		 int homebody=0;
@@ -221,11 +219,6 @@ public class FUN_Controller {
 			sensitive++;
 		}
 		
-
-
-		System.out.println( mbti );
-
-		
 		vo.setFun_mbti_result(mbti);
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
 		myvo.setClientIdx((int)session.getAttribute("clientIdx"));
@@ -271,30 +264,14 @@ public class FUN_Controller {
 		vo.setMbti_q19(Integer.parseInt(rsval.get(18)));
 		vo.setMbti_q20(Integer.parseInt(rsval.get(19)));
 		
-		
 		fun_Mbtitest_0_Service.insert_Fun_Mbtitest_0(vo); 
 		fun_Mbtitest_0_Service.insert_Fun_my_character(myvo);
-		
-		
-		
-		//=======================================================
-		// 재 테스트일 경우 넣기
-		// 
-		// 일단 세세한 건 나중에 적용하고 mbti - 나의 성격 / test - 이상형 으로만 진행
-		//=======================================================
-		
-	
-
 	}
 	
 	@GetMapping("/test2_result")
 	public void test2_result(@RequestParam("rs_list") List<String> rs_list,@RequestParam("category") String category, 
 										@RequestParam("rs_text") String rs_text, HttpSession session,
 										Fun_test2_ideal_VO idealvo,Fun_test2_myself_VO myvo, Fun_your_character_VO chvo) {
-		
-		System.out.println(rs_list.get(0));
-		System.out.println(rs_list.get(6));
-		System.out.println(rs_text);
 		
 	     int your_gender=0; // 0:female 1:male
 		 int your_fashion=0;
@@ -365,11 +342,7 @@ public class FUN_Controller {
 			fun_Mbtitest_0_Service.insert_Fun_your_character(chvo);
 			fun_Mbtitest_0_Service.insert_Fun_test2_ideal(idealvo);
 			
-						
-		}
-		
-		else{
-			
+		}else{
 			myvo.setFun_test2_myself_result(rs_text);
 			myvo.setQ1(Integer.parseInt(rs_list.get(0)));
 			myvo.setQ2(Integer.parseInt(rs_list.get(1)));
@@ -381,10 +354,7 @@ public class FUN_Controller {
 			myvo.setClientIdx((int)session.getAttribute("clientIdx"));
 			
 			fun_Mbtitest_0_Service.insert_Fun_test2_myself(myvo);
-			
 		}
-	
-
 	}
 	
 }

@@ -21,17 +21,11 @@ public class GoodsController {
 	 @Autowired 
 	 private GoodsService goodsService;
 	  
-		
+	//유료 아이템 목록 출력	
 	@RequestMapping("/Premium_0_main")
-	public String getGoodsList(GoodsVO vo, Model m) {			
-		System.out.println("�떎�뻾1");
+	public String getGoodsList(GoodsVO vo, Model m) {	
 		List<GoodsVO> result = goodsService.getGoodsList(vo);
 		m.addAttribute("GoodsList", result);
-		System.out.println(result);
 		return "/Premium_0_main";
-		
 	}
-	
-	
-	
 }

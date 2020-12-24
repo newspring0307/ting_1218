@@ -4,87 +4,78 @@
 
 
 <!---------------------------------- header end ---------------------------------->
+   <section id="fh5co-testimonials" data-section="love">
+      <div class="container">
+         <div class="row">
+         </div>
+      </div>
+   </section>
 
-<!--여기에 내용 넣으세요-->
-	<div id="mainContainer" class="container" style="width: 1000px">
-		<div class="twoColumn">
-			<section class="mainCol">
-			
-				
-				
-				
-				<!-- 나의프로필 -->
-				
-				<section class="profilePage account">
-					<h2 class="h1">나의 프로필</h2>
-					<div class="box profileHeader">
-						<article class="profileInfo">
-							<a href="#" class="imgWrp" style="background-color: #D8D8D8 "
-								target="_blank" data-index="0"><img src="resources/css/asd.j" alt=""></a>
-							<div class="intro">
-								<div class="form whiteForm username">
-									<div class="field input">
-										<label for="editUserNameInput">이름</label>${myDetailInfo.name}
-									</div>
-									<form method="POST" action="updateClientDetailInfo">
-									<div class="field input">
-										<label for="editUserNameInput1">닉네임</label><input
-											type="text" name="nickname" id="nickname" placeholder="닉네임"
-											value="${myDetailInfo.nickname}">
-									</div>
-									
 
-								<div class="form whiteForm aboutMe">
-									<header class="editHeader leftAligned">
-										<h3>자기 소개</h3>
-									</header>
-									<p class="hidden"></p>
-									<div class="field text">
-										<textarea name="selfIntro" placeholder="자기 소개...">${myDetailInfo.selfIntro}</textarea>
-									</div>
-									
-									
-									
-									
-									
+
+   <!--  게시판상세페이지 -->
+
+	<section id="fh5co-intro">
+		<div class="container">
+			<div class=" section-heading text-center">
+				<div align="center"
+					style="width: 70%; height: auto; border: 1px solid #E6E6E6; border-radius: 1em; margin: 0 auto; margin-top: 50px; padding-bottom: 50px;">
+
+					<div class="ui compact menu" style="float: right; border: 1px solid #E6E6E6; border-radius: 1em;border-style: none;">
+						<div class="ui simple dropdown item">
+							<font _mstmutation="1" _msthash="2126644" _msttexthash="21094424">
+								도움말 / 지원 </font><i class="dropdown icon"></i>
+							<div class="menu">
+								<div class="item" _msthash="3034434" _msttexthash="10065549">선택1
 								</div>
-
-								<div class="ui compact menu">
-									<div class="ui simple dropdown item">
-										<font _mstmutation="1" _msthash="2126644"
-											_msttexthash="21094424"> 도움말 / 지원 </font><i class="dropdown icon"></i>
-										<div class="menu">
-											<div class="item" _msthash="3034434" _msttexthash="10065549">선택1
-												</div>
-											<div class="item" _msthash="3035396" _msttexthash="10065666">비밀번호리셋
-												</div>
-											<div class="item" _msthash="3036358" _msttexthash="82082">선택3
-												</div>
-										</div>
-									</div>
+								<div class="item" _msthash="3035396" _msttexthash="10065666">비밀번호리셋
 								</div>
-
-
+								<div class="item" _msthash="3036358" _msttexthash="82082">선택3
+								</div>
 							</div>
-						</article>
+						</div>
 					</div>
-					<!-- 나의프로필 -->
 					
+					<p style="padding-top: 40px; width: 250px; margin: 0 auto;">
+						<font size="50pt">나의 프로필</font>
+					</p>
+					<br>
+					<p style="width: 40%; margin: 0 auto;padding-right: 100px; font-size: 20px;">
+						이름 : ${myDetailInfo.name}
+					</p>
+					<br>
 					
-					<!-- 내정보 -->
-					<div class="box profileFacts">
-						<header class="editHeader">
-							<h3>내정보</h3>
-							
-						</header>
-						
+				<form method="POST" action="updateClientDetailInfo">
+					<div class="field input">
+						<label for="editUserNameInput1">닉네임&nbsp;</label><input type="text"
+							name="nickname" id="editUserNameInput1" placeholder="닉네임" value="${myDetailInfo.nickname}">
+					</div>
+					<br>
+					<div>
+							<h1>자기 소개</h1>
+						<p class="hidden"></p>
+						<div class="field text">
+							<textarea  style="resize: none; width: 300px; height: 100px" name="selfIntro" placeholder="자기 소개">${myDetailInfo.selfIntro}</textarea>
+						</div>
+					</div>
+
+
+					<div class="box profileFacts" style="width: 90%; height: auto; border-top: 1px solid #E6E6E6;  margin: 0 auto;margin-top: 30px; padding-top: 30px;"">
+					
+							<h1>내정보</h1>
+
+					
+
 						<div class="grid cols-1 cols-m-2 form whiteForm factForm">
-							
-							<div class="field select single height">
+
+
+
+							<p>
+							<div>
 								<label for="factFormField-Height">키</label>
-								<div class="wrp">
+								<div>
 									<select id="factFormField-Height" name="height"><option
-											value="${myDetailInfo.height}">${myDetailInfo.height} cm</option>
+											value="${myDetailInfo.height}">${myDetailInfo.height}cm</option>
 										<option value="140">140 cm</option>
 										<option value="141">141 cm</option>
 										<option value="142">142 cm</option>
@@ -168,53 +159,73 @@
 										<option value="220">220 cm</option></select>
 								</div>
 							</div>
-							<div class="field select single body">
+							</p>
+
+							<p>
+							<div>
 								<label for="factFormField-Body">체형</label>
-								<div class="wrp">
+								<div>
 									<select id="factFormField-Body" name="bodyShape"><option
 											value="${myDetailInfo.bodyShape}">${myDetailInfo.bodyShape}</option>
 										<option value="날씬함">날씬함</option>
-										<option value="보통">보통</option>
-										<option value="근육질">근육질</option>
+										<option value="정상">정상</option>
+										<option value="탄탄한">탄탄한</option>
+										<option value="근육질의">근육질의</option>
 										<option value="통통한">통통한</option></select>
 								</div>
 							</div>
-							<div class="field select single smoker">
+							</p>
+
+							<p>
+							<div>
 								<label for="factFormField-Smoker">흡연자</label>
-								<div class="wrp">
+								<div>
 									<select id="factFormField-Smoker" name="smoke"><option
 											value="${myDetailInfo.smoke}">${myDetailInfo.smoke}</option>
-										<option value="비흡연">비흡연</option>
-										<option value="가끔">가끔</option>
-										<option value="종종">종종</option>
-										<option value="매일">매일</option></select>
+										<option value="비흡연자">비-흡연자</option>
+										<option value="전흡연자">전-흡연자</option>
+										<option value="간헐">간헐적 흡연자</option>
+										<option value="규칙">규칙적 흡연자</option></select>
 								</div>
 							</div>
-							<div class="field select single alcohol">
+							</p>
+
+
+							<p>
+							<div>
 								<label for="factFormField-Alcohol">음주</label>
-								<div class="wrp">
+								<div>
 									<select id="factFormField-Alcohol" name="drink"><option
 											value="${myDetailInfo.drink}">${myDetailInfo.drink}</option>
-										<option value="안 마심">안 마심</option>
-										<option value="1병 이하">1병 이하</option>
-										<option value="1병 - 2병">1병 - 2병</option>
-										<option value="2병 초과">2병 초과</option></select>
+										<option value="전혀">전혀</option>
+										<option value="가끔">가끔</option>
+										<option value="즐겨함">즐겨함</option></select>
 								</div>
 							</div>
-							<div class="field select single education">
-								<label for="factFormField-Education">교육</label>
-								<div class="wrp">
+							</p>
+
+
+							<p>
+							<div>
+								<label for="factFormField-Education">학력</label>
+								<div>
 									<select id="factFormField-Education" name="education"><option
 											value="${myDetailInfo.education}">${myDetailInfo.education}</option>
-										<option value="중졸">중졸</option>
-										<option value="고졸">고졸</option>
-										<option value="대졸">대졸</option>
-										<option value="석박사">석박사</option></select>
+										<option value="마치지 않음">마치지 않음</option>
+										<option value="직업 학교">직업 학교</option>
+										<option value="중고등학교">중고등학교</option>
+										<option value="고등학교">고등학교</option>
+										<option value="고등학교 디플로마">고등학교 디플로마</option>
+										<option value="대학/대학교">대학/대학교</option>
+										<option value="대학원">대학원</option></select>
 								</div>
 							</div>
-							<div class="field select single profession">
+							</p>
+
+							<p>
+							<div>
 								<label for="factFormField-Profession">직업</label>
-								<div class="wrp">
+								<div>
 									<select id="factFormField-Profession" name="job"><option
 											value="${myDetailInfo.job}">${myDetailInfo.job}</option>
 										<option value="구직중">구직중</option>
@@ -227,41 +238,35 @@
 										<option value="학생">학생</option></select>
 								</div>
 							</div>
-							
-							<div class="field select single relationshipstatus">
+							</p>
+
+							<p>
+							<div>
 								<label for="factFormField-Relationship status">종교</label>
-								<div class="wrp">
-									<select id="factFormField-Relationship status"
-										name="religion"><option value="${myDetailInfo.religion}">${myDetailInfo.religion}</option>
-										<option value="무교">무교</option>
+								<div>
+									<select id="factFormField-Relationship status" name="religion"><option
+											value="${myDetailInfo.religion}">${myDetailInfo.religion}</option>
 										<option value="기독교">기독교</option>
 										<option value="불교">불교</option>
 										<option value="천주교">천주교</option>
-										<option value="그외">그외</option></select>
+										<option value="힌두교">힌두교</option>
+										<option value="크리스찬교">크리스찬교</option>
+										<option value="무교">무교</option></select>
 								</div>
-							</div>
-							
-							
-							
-						
-						</div>
-					</div>
-					<div>
-						<div class="fiield" style="float:right; padding: 10px 0px 10px 0px">
+								<div class="fiield" style=" padding: 10px 0px 10px 0px">
 							<h2><input type="submit" class="btn" value="저장하기"></h2>
+						</div>
+							</div>
+							</p>
 
 						</div>
 					</div>
-					</form>
-				</section>
-				
-				
+				</div>
+			</div>
 		</div>
-		
-		
-		
-		
-	</div>
+		</form>
+	</section>
+
 	
 	<!-- 내정보 -->
 

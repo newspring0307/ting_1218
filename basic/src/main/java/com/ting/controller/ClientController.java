@@ -25,31 +25,29 @@ public class ClientController {
 	@Autowired
 	private IdealTypeService idealTypeService;
 	
+	//회원 상세정보 입력 
 	@RequestMapping("/insertClientDetailInfo")
 	public String insertClientDetailInfo(ClientDetailInfoVO vo,HttpSession session) {
-
+		
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("실행되는지확인");
 		clientDetailInfoService.insertClientDetailInfo(vo);
 		return "redirect:/Client_4_interestInsert";
 	}
 	
-	//고객 사진 입력 메소드
+	//고객 사진 입력 
 	@RequestMapping("/updatePhotoClientDetailInfo")
 	public String updatePhotoClientDetailInfo(ClientDetailInfoVO vo,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println(vo.getPhoto());
 		clientDetailInfoService.updatePhotoClientDetailInfo(vo);
 		return "redirect:/Ideal_0_idealTypeInsert";
 	}
 	
-	//이상형 정보 입력 메소드
+	//이상형 정보 입력 
 	@RequestMapping("/insertidealType")
 	public String insertidealType(IdealTypeVO vo,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("실행되는지확인2");
 		idealTypeService.insertIdealType(vo);
 		return "redirect:/index";
 	}
@@ -59,7 +57,6 @@ public class ClientController {
 	public String Client_0_main(ClientDetailInfoVO vo,Model m,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("실행되는지확인3");
 		ClientDetailInfoVO result = clientDetailInfoService.getClientDetailInfo(vo);
 		m.addAttribute("myDetailInfo", result);
 		return "/Client_0_main";
@@ -70,7 +67,6 @@ public class ClientController {
 	public String Client_1_info_update(ClientDetailInfoVO vo,Model m,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("실행되는지확인3");
 		ClientDetailInfoVO result = clientDetailInfoService.getClientDetailInfo(vo);
 		m.addAttribute("myDetailInfo", result);
 		return "/Client_1_info_update";
@@ -81,31 +77,32 @@ public class ClientController {
 	public String UpdateClientDetailInfo(ClientDetailInfoVO vo,HttpSession session) {
 
 		vo.setClientIdx((int)session.getAttribute("clientIdx"));
-		System.out.println("실행되는지확인2");
 		clientDetailInfoService.updateClientDetailInfo(vo);;
-		return "redirect:/Client_1_info_update";
+		return "redirect:/Client_0_main";
 	}
 	
+	//오늘의 매칭 리스트 출력 + 하트 개수 출력
 	@RequestMapping(value = "/Client_2_Ting_main")
 	public String getClientDetailInfoList(ClientDetailInfoVO vo, Model m, HttpSession session) {
-		if (session.getAttribute("clientIdx") == null) {
-
-			System.out.println(session.getAttribute("clientIdx"));
-			return "Main_login_0";
-		} else {
-			vo.setClientIdx((int) session.getAttribute("clientIdx"));
-			ClientDetailInfoVO vo2 = clientDetailInfoService.getClientDetailInfo(vo);
-			vo.setGender(vo2.getGender());
-			List<ClientDetailInfoVO> result = clientDetailInfoService.getClientDetailInfoList(vo);
-			m.addAttribute("clientDetailInfo", result);
-			int heartCnt = clientDetailInfoService.getTotalHeart(vo);
-			System.out.println(heartCnt);
-			m.addAttribute("heartCnt", heartCnt);
-			return "/Client_2_Ting_main";
+		try {
+			if (session.getAttribute("clientIdx") == null) {
+				return "Main_login_0";
+			} else {
+				vo.setClientIdx((int) session.getAttribute("clientIdx"));
+				ClientDetailInfoVO vo2 = clientDetailInfoService.getClientDetailInfo(vo);
+				vo.setGender(vo2.getGender());
+				List<ClientDetailInfoVO> result = clientDetailInfoService.getClientDetailInfoList(vo);
+				m.addAttribute("clientDetailInfo", result);
+				int heartCnt = clientDetailInfoService.getTotalHeart(vo);
+				m.addAttribute("heartCnt", heartCnt);
+			}
+		} catch (NullPointerException e) {
+			e.printStackTrace();
 		}
+		return "/Client_2_Ting_main";
 	}
 	
-	//일반 매칭에서 매칭상대 상세정보 들어갔을때
+	//일반 매칭에서 매칭상대 상세보기 들어갔을때
 	@RequestMapping("/Client_2_Ting_like")
 	public String getClientDetailInfo(ClientDetailInfoVO vo,Model m,HttpSession session) {
 		ClientDetailInfoVO result = clientDetailInfoService.getClientDetailInfo(vo);
@@ -114,7 +111,6 @@ public class ClientController {
 		m.addAttribute("clientDetailInfo",result);
 		m.addAttribute("myClientDetailInfo",result2);
 		int heartCnt= clientDetailInfoService.getTotalHeart(vo);
-		System.out.println(heartCnt);
 		m.addAttribute("heartCnt", heartCnt);
 		return "/Client_2_Ting_like";
 	}
@@ -131,6 +127,7 @@ public class ClientController {
 		return "/Client_2_Ting_like_reply";
 				}
 	
+	//페이지 이동
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
 		return "/"+step;

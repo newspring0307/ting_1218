@@ -65,14 +65,19 @@
 								<div style="text-align: center;">
 									<font size="5">
 									<p><span><i class="fas fa-cat fa-1x"></i></span>&nbsp;야옹.... 고양이를 닮았어요 - 고양이상 회원</p>
-									<p>흡연여부:<span><i class="fas fa-smoking-ban fa-1x"></i></span>&nbsp;${myDetailInfo.smoke}</p>
-									<p>음주여부:<span><i class="fas fa-glass-cheers fa-1x"></i></span>&nbsp;${myDetailInfo.drink}</p>
-									<p>종교:<span><i class="fas fa-cross fa-1x"></i></span>&nbsp;${myDetailInfo.religion}</p>
-									<p>학력:<span><i class="fas fa-graduation-cap fa-1x"></i></span>&nbsp;${myDetailInfo.education}</p>
-									<p>체형:<span><i class="fas fa-dumbbell fa-1x"></i></span>&nbsp;${myDetailInfo.bodyShape}</p>
-									<p>키:<span><i class="fas fa-child fa-1x"></i></span>&nbsp;${myDetailInfo.height}cm</p>
-									<p>MBTI결과:<span><i class="fas fa-child fa-1x"></i></span>&nbsp;${myDetailInfo.funvo.fun_mbti_result}</p>
-									
+									<p><i class="fas fa-smoking-ban fa-1x"></i>흡연여부:&nbsp;${myDetailInfo.smoke}</p>
+									<p><i class="fas fa-glass-cheers fa-1x"></i>음주여부:&nbsp;${myDetailInfo.drink}</p>
+									<p><i class="fas fa-cross fa-1x"></i>종교:&nbsp;${myDetailInfo.religion}</p>
+									<p><i class="fas fa-graduation-cap fa-1x"></i>학력:&nbsp;${myDetailInfo.education}</p>
+									<p><i class="fas fa-dumbbell fa-1x"></i>체형:&nbsp;${myDetailInfo.bodyShape}</p>
+									<p><i class="fas fa-child fa-1x"></i>키:&nbsp;${myDetailInfo.height}cm</p>
+									<p><i class="fas fa-child fa-1x"></i>MBTI결과:&nbsp;${myDetailInfo.funvo.fun_mbti_result}</p>
+									<!-- <c:forEach items="${InterestList}" var="list">
+									<div class="ui checkbox" style="width:200px; height:50px; font-size:30px;">
+									<input type="checkbox" name="clientInterest" value='${list.interestIdx}' style="width:150px; height:50px; font-size:30px;"> 
+									<label>${list.interestName}</label>
+									</div>
+									</c:forEach> -->
 									</font>
 								</div>
 							</div>
